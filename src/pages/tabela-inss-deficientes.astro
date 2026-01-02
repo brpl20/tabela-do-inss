@@ -1,0 +1,53 @@
+---
+import TablePage from '../components/TablePage.astro';
+
+const tableHeaders = ['Grau de Deficiencia', 'Tempo Homem', 'Tempo Mulher', 'Idade Minima'];
+
+const tableData = [
+  ['Grave', '25 anos', '20 anos', '-'],
+  ['Moderada', '29 anos', '24 anos', '-'],
+  ['Leve', '33 anos', '28 anos', '-'],
+  ['Por Idade (qualquer grau)', '15 anos', '15 anos', 'H: 60 / M: 55 anos'],
+];
+
+const faqItems = [
+  {
+    question: 'O que e aposentadoria da pessoa com deficiencia?',
+    answer: 'E um beneficio com requisitos diferenciados para pessoas que comprovem deficiencia fisica, mental, intelectual ou sensorial de longo prazo que afete sua participacao na sociedade.'
+  },
+  {
+    question: 'Como e definido o grau de deficiencia?',
+    answer: 'Atraves de pericia medica e avaliacao social do INSS, utilizando o Indice de Funcionalidade Brasileiro (IFBrA). A avaliacao considera fatores clinicos e sociais.'
+  },
+  {
+    question: 'Preciso ter a deficiencia durante todo o periodo de contribuicao?',
+    answer: 'Nao. E possivel somar periodos com diferentes graus de deficiencia ou mesmo sem deficiencia, usando regras de conversao proporcionais.'
+  },
+  {
+    question: 'A reforma da previdencia mudou essa aposentadoria?',
+    answer: 'A Lei Complementar 142/2013 que regula essa aposentadoria nao foi alterada pela reforma. Os requisitos de tempo de contribuicao permanecem os mesmos.'
+  },
+  {
+    question: 'O BPC e a mesma coisa que aposentadoria por deficiencia?',
+    answer: 'Nao. O BPC (Beneficio de Prestacao Continuada) e assistencial, para pessoas com deficiencia de baixa renda que nao conseguem se manter. A aposentadoria e previdenciaria e exige contribuicao.'
+  }
+];
+---
+
+<TablePage
+  title="Tabela INSS Pessoa com Deficiencia 2026"
+  description="Tabela de aposentadoria da pessoa com deficiencia INSS 2026. Tempo de contribuicao por grau de deficiencia: grave, moderada e leve."
+  intro="Requisitos de aposentadoria para pessoas com deficiencia conforme Lei Complementar 142/2013."
+  tableHeaders={tableHeaders}
+  tableData={tableData}
+  faqItems={faqItems}
+  extraContent={true}
+>
+  <h3>Conversao entre Graus de Deficiencia</h3>
+  <p>Se voce teve diferentes graus de deficiencia ao longo da vida, os periodos podem ser convertidos:</p>
+  <ul>
+    <li>Tempo com deficiencia <strong>grave</strong> pode ser convertido para moderada ou leve</li>
+    <li>Tempo com deficiencia <strong>moderada</strong> pode ser convertido para leve</li>
+    <li>Tempo <strong>sem deficiencia</strong> tambem pode ser somado com fator de conversao</li>
+  </ul>
+</TablePage>

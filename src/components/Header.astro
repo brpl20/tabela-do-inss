@@ -1,0 +1,304 @@
+---
+const tabelasLinks = [
+  { href: '/tabela-contribuinte-individual', label: 'Contribuinte Individual' },
+  { href: '/tabela-inss-empresas', label: 'Empresas' },
+  { href: '/tabela-aposentadoria-especial', label: 'Aposentadoria Especial' },
+  { href: '/tabela-conversao-tempo-especial', label: 'Conversao Tempo Especial' },
+  { href: '/tabela-inss-deficientes', label: 'Pessoa com Deficiencia' },
+  { href: '/tabela-regras-de-transicao', label: 'Regras de Transicao' },
+  { href: '/tabela-aposentadoria-por-pontos', label: 'Aposentadoria por Pontos' },
+  { href: '/tabela-siglas-do-inss', label: 'Siglas do INSS' },
+  { href: '/tabela-precatorio-rpv-inss', label: 'Precatorio e RPV' },
+  { href: '/tabela-codigos-do-inss', label: 'Codigos do INSS' },
+];
+---
+
+<header class="header">
+  <div class="header-container">
+    <a href="/" class="logo">
+      <span class="logo-text">Tabela do INSS</span>
+      <span class="logo-year">2026</span>
+    </a>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link">Inicio</a></li>
+        <li class="dropdown">
+          <button class="nav-link dropdown-toggle" aria-expanded="false">
+            Tabelas <span class="arrow">▾</span>
+          </button>
+          <ul class="dropdown-menu">
+            {tabelasLinks.map(link => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </li>
+        <li><a href="/blog" class="nav-link">Blog</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span class="menu-icon"></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+      <li><a href="/">Inicio</a></li>
+      <li class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle">Tabelas <span class="arrow">▾</span></button>
+        <ul class="mobile-dropdown-menu">
+          {tabelasLinks.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    background: #1a5f2a;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .logo-year {
+    font-size: 1rem;
+    background: #ffd700;
+    color: #1a5f2a;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+
+  .nav-link:hover {
+    color: #ffd700;
+  }
+
+  .arrow {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 220px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0 0;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-menu li a:hover {
+    background: #e8f5e9;
+    color: #1a5f2a;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .menu-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: white;
+    position: relative;
+  }
+
+  .menu-icon::before,
+  .menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: white;
+    left: 0;
+  }
+
+  .menu-icon::before { top: -8px; }
+  .menu-icon::after { bottom: -8px; }
+
+  .mobile-nav {
+    display: none;
+    background: #145222;
+    padding: 1rem;
+  }
+
+  .mobile-nav.open {
+    display: block;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-nav-list > li > a,
+  .mobile-dropdown-toggle {
+    display: block;
+    padding: 0.75rem 0;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .mobile-dropdown-menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(0,0,0,0.1);
+  }
+
+  .mobile-dropdown.open .mobile-dropdown-menu {
+    display: block;
+  }
+
+  .mobile-dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1.5rem;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Desktop dropdown
+  const dropdown = document.querySelector('.dropdown');
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+  if (dropdown && dropdownToggle) {
+    dropdownToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('open');
+    });
+  }
+
+  // Mobile menu
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+  }
+
+  // Mobile dropdown
+  const mobileDropdown = document.querySelector('.mobile-dropdown');
+  const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+
+  if (mobileDropdown && mobileDropdownToggle) {
+    mobileDropdownToggle.addEventListener('click', () => {
+      mobileDropdown.classList.toggle('open');
+    });
+  }
+</script>

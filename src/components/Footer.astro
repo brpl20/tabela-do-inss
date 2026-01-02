@@ -1,0 +1,121 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Tabela do INSS 2026</h3>
+        <p>Informacoes atualizadas sobre a Previdencia Social Brasileira, aliquotas de contribuicao e beneficios do INSS.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Links Uteis</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/tabela">Tabela de Contribuicao</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Informacoes</h4>
+        <ul>
+          <li><a href="/sobre">Sobre</a></li>
+          <li><a href="/contato">Contato</a></li>
+          <li><a href="/privacidade">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Tabela do INSS. Todos os direitos reservados.</p>
+      <p class="disclaimer">Este site nao possui vinculo com o Governo Federal ou o INSS. As informacoes sao de carater informativo.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    padding: 3rem 0 1.5rem;
+    margin-top: auto;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-section h3 {
+    color: #ffd700;
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+  }
+
+  .footer-section h4 {
+    color: white;
+    margin: 0 0 1rem;
+    font-size: 1rem;
+  }
+
+  .footer-section p {
+    margin: 0;
+    line-height: 1.6;
+    color: #b0b0b0;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-section a:hover {
+    color: #ffd700;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
+    color: #888;
+  }
+
+  .disclaimer {
+    font-size: 0.75rem !important;
+    color: #666 !important;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

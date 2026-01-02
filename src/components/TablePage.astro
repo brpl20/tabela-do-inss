@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQ from './FAQ.astro';
+
+const { title, description, intro, tableData, tableHeaders, faqItems, extraContent } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <section class="page-hero">
+    <div class="container">
+      <h1>{title}</h1>
+      <p class="hero-subtitle">{intro}</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="content-wrapper">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                {tableHeaders.map(header => (
+                  <th>{header}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {tableData.map(row => (
+                <tr>
+                  {row.map((cell, index) => (
+                    <td class={index === 1 ? 'highlight' : ''}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {extraContent && (
+          <div class="extra-content">
+            <slot />
+          </div>
+        )}
+
+        <FAQ items={faqItems} />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+
+  .content-section {
+    padding: 3rem 0;
+  }
+
+  .content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+
+  .data-table th {
+    background: #1a5f2a;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .data-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .data-table tr:hover {
+    background: #f8f9fa;
+  }
+
+  .data-table .highlight {
+    font-weight: 600;
+    color: #1a5f2a;
+  }
+
+  .extra-content {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  @media (max-width: 768px) {
+    .page-hero h1 {
+      font-size: 1.5rem;
+    }
+
+    .content-wrapper {
+      padding: 1.5rem;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>

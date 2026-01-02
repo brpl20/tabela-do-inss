@@ -1,0 +1,70 @@
+---
+import TablePage from '../components/TablePage.astro';
+
+const tableHeaders = ['Tempo Especial', 'Multiplicador Homem', 'Multiplicador Mulher', 'Exemplo (10 anos especial)'];
+
+const tableData = [
+  ['15 anos', '2,33', '2,00', 'H: 23,3 anos / M: 20 anos'],
+  ['20 anos', '1,75', '1,50', 'H: 17,5 anos / M: 15 anos'],
+  ['25 anos', '1,40', '1,20', 'H: 14 anos / M: 12 anos'],
+];
+
+const faqItems = [
+  {
+    question: 'O que e conversao de tempo especial?',
+    answer: 'E a transformacao do periodo trabalhado em atividade especial em tempo comum, aplicando um fator multiplicador. Isso aumenta o tempo de contribuicao para fins de aposentadoria comum.'
+  },
+  {
+    question: 'Ainda e possivel fazer a conversao de tempo especial?',
+    answer: 'Sim, mas apenas para periodos trabalhados ate 12/11/2019 (antes da reforma). Periodos especiais apos essa data nao podem mais ser convertidos em tempo comum.'
+  },
+  {
+    question: 'Como funciona o calculo de conversao?',
+    answer: 'Multiplica-se o tempo especial pelo fator correspondente. Ex: 10 anos em atividade de 25 anos x 1,40 = 14 anos de tempo comum para homens.'
+  },
+  {
+    question: 'Posso converter tempo especial mesmo sem completar o tempo minimo?',
+    answer: 'Sim. Mesmo que voce nao tenha completado 15, 20 ou 25 anos de atividade especial, pode converter o periodo que trabalhou para somar ao tempo comum.'
+  },
+  {
+    question: 'A conversao vale para qualquer tipo de aposentadoria?',
+    answer: 'A conversao serve para aumentar o tempo de contribuicao e pode ajudar a atingir os requisitos de aposentadoria por tempo de contribuicao ou regras de transicao.'
+  }
+];
+---
+
+<TablePage
+  title="Tabela de Conversao de Tempo Especial INSS 2026"
+  description="Tabela de conversao de tempo especial para tempo comum INSS 2026. Fatores de multiplicacao para atividades de 15, 20 e 25 anos."
+  intro="Fatores de conversao de tempo especial para tempo comum, aplicaveis a periodos anteriores a 13/11/2019."
+  tableHeaders={tableHeaders}
+  tableData={tableData}
+  faqItems={faqItems}
+  extraContent={true}
+>
+  <h3>Importante</h3>
+  <div class="info-box">
+    <p><strong>Atencao:</strong> A conversao de tempo especial em comum so e permitida para periodos trabalhados <strong>ate 12/11/2019</strong>. Apos essa data, o tempo especial so pode ser usado para aposentadoria especial.</p>
+  </div>
+
+  <h3>Exemplo Pratico</h3>
+  <p>Um homem trabalhou 8 anos como eletricista de alta tensao (atividade de 25 anos):</p>
+  <ul>
+    <li>Tempo especial: 8 anos</li>
+    <li>Fator de conversao: 1,40</li>
+    <li>Tempo convertido: 8 x 1,40 = <strong>11,2 anos</strong> de tempo comum</li>
+  </ul>
+</TablePage>
+
+<style>
+  .info-box {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
+  .info-box p {
+    margin: 0;
+  }
+</style>

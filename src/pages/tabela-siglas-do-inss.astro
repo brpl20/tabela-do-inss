@@ -1,0 +1,61 @@
+---
+import TablePage from '../components/TablePage.astro';
+
+const tableHeaders = ['Sigla', 'Significado', 'Descricao'];
+
+const tableData = [
+  ['INSS', 'Instituto Nacional do Seguro Social', 'Autarquia responsavel pela previdencia social'],
+  ['RGPS', 'Regime Geral de Previdencia Social', 'Sistema previdenciario dos trabalhadores privados'],
+  ['RPPS', 'Regime Proprio de Previdencia Social', 'Sistema previdenciario dos servidores publicos'],
+  ['NIT', 'Numero de Identificacao do Trabalhador', 'Numero de inscricao no INSS'],
+  ['PIS', 'Programa de Integracao Social', 'Cadastro do trabalhador (setor privado)'],
+  ['PASEP', 'Programa de Formacao do Patrimonio do Servidor', 'Cadastro do servidor publico'],
+  ['CNIS', 'Cadastro Nacional de Informacoes Sociais', 'Base de dados de vinculos e contribuicoes'],
+  ['GPS', 'Guia da Previdencia Social', 'Documento para pagamento de contribuicoes'],
+  ['DIB', 'Data de Inicio do Beneficio', 'Data em que o beneficio comeca a valer'],
+  ['DER', 'Data de Entrada do Requerimento', 'Data do pedido do beneficio'],
+  ['DCB', 'Data de Cessacao do Beneficio', 'Data em que o beneficio e encerrado'],
+  ['RMI', 'Renda Mensal Inicial', 'Valor inicial do beneficio'],
+  ['PPP', 'Perfil Profissiografico Previdenciario', 'Documento de atividade especial'],
+  ['LTCAT', 'Laudo Tecnico das Condicoes Ambientais', 'Laudo de exposicao a agentes nocivos'],
+  ['BPC', 'Beneficio de Prestacao Continuada', 'Beneficio assistencial (nao previdenciario)'],
+  ['LOAS', 'Lei Organica da Assistencia Social', 'Lei que regulamenta o BPC'],
+  ['FAP', 'Fator Acidentario de Prevencao', 'Multiplicador do RAT para empresas'],
+  ['RAT', 'Risco Ambiental do Trabalho', 'Contribuicao sobre risco de acidentes'],
+  ['SAT', 'Seguro Acidente de Trabalho', 'Antigo nome do RAT'],
+  ['CTC', 'Certidao de Tempo de Contribuicao', 'Documento para averbacao de tempo'],
+];
+
+const faqItems = [
+  {
+    question: 'Qual a diferenca entre PIS e NIT?',
+    answer: 'O PIS e atribuido ao trabalhador pelo empregador no primeiro emprego. O NIT e usado por contribuintes individuais e facultativos que se inscrevem diretamente no INSS. Ambos funcionam como numero de identificacao.'
+  },
+  {
+    question: 'O que e o CNIS e como acessar?',
+    answer: 'O CNIS e a base de dados do INSS com todo seu historico de trabalho e contribuicoes. Voce pode consultar pelo app ou site Meu INSS, na opcao "Extrato de Contribuicao (CNIS)".'
+  },
+  {
+    question: 'O que significa DIB, DER e DCB?',
+    answer: 'DER e a data do pedido do beneficio. DIB e quando o beneficio comeca a valer (pode ser retroativo). DCB e quando o beneficio termina, se for temporario.'
+  },
+  {
+    question: 'Qual a diferenca entre RGPS e RPPS?',
+    answer: 'RGPS e o regime do INSS para trabalhadores da iniciativa privada. RPPS sao os regimes proprios de servidores publicos (federal, estadual, municipal). Tem regras diferentes.'
+  },
+  {
+    question: 'O que e PPP e quando preciso dele?',
+    answer: 'O PPP e um documento que comprova exposicao a agentes nocivos para aposentadoria especial. Deve ser fornecido pela empresa ao trabalhador. E obrigatorio para quem quer converter tempo especial ou pedir aposentadoria especial.'
+  }
+];
+---
+
+<TablePage
+  title="Tabela de Siglas do INSS 2026"
+  description="Glossario completo de siglas do INSS. Entenda o significado de NIT, PIS, CNIS, GPS, DIB, DER, PPP e outras siglas da previdencia."
+  intro="Glossario com as principais siglas e termos utilizados pelo INSS e na previdencia social brasileira."
+  tableHeaders={tableHeaders}
+  tableData={tableData}
+  faqItems={faqItems}
+  extraContent={false}
+/>

@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tabelaINSS = [
+  { faixa: 'Ate R$ 1.621,00', aliquota: '7,5%', parcela: 'R$ 0,00' },
+  { faixa: 'De R$ 1.621,01 ate R$ 2.793,88', aliquota: '9%', parcela: 'R$ 24,32' },
+  { faixa: 'De R$ 2.793,89 ate R$ 4.190,83', aliquota: '12%', parcela: 'R$ 108,09' },
+  { faixa: 'De R$ 4.190,84 ate R$ 8.157,41', aliquota: '14%', parcela: 'R$ 191,91' },
+];
+---
+
+<Layout>
+  <section class="hero">
+    <div class="container">
+      <h1>Tabela do INSS 2026</h1>
+      <p class="hero-subtitle">Confira as aliquotas de contribuicao atualizadas para empregados, autonomos e contribuintes individuais da Previdencia Social.</p>
+    </div>
+  </section>
+
+  <section class="tabela-section">
+    <div class="container">
+      <h2>Tabela de Contribuicao INSS 2026</h2>
+      <p class="section-intro">Valores vigentes para empregados, empregados domesticos e trabalhadores avulsos.</p>
+
+      <div class="table-wrapper">
+        <table class="tabela-inss">
+          <thead>
+            <tr>
+              <th>Faixa Salarial</th>
+              <th>Aliquota</th>
+              <th>Parcela a Deduzir</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tabelaINSS.map(row => (
+              <tr>
+                <td>{row.faixa}</td>
+                <td class="aliquota">{row.aliquota}</td>
+                <td>{row.parcela}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box">
+        <h3>Como calcular a contribuicao?</h3>
+        <p>A contribuicao ao INSS e calculada de forma progressiva. Cada faixa salarial tem sua propria aliquota, e voce paga o percentual correspondente apenas sobre a parcela do salario que se enquadra naquela faixa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2>Informacoes Importantes</h2>
+      <div class="features-grid">
+        <article class="feature-card">
+          <h3>Contribuinte Individual</h3>
+          <p>Autonomos e profissionais liberais podem contribuir com 11% sobre o salario minimo ou 20% sobre o salario de contribuicao.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>MEI</h3>
+          <p>Microempreendedores Individuais contribuem com 5% do salario minimo atraves do DAS mensal.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Teto do INSS</h3>
+          <p>O teto maximo de contribuicao para 2026 e de R$ 8.157,41, com contribuicao maxima de R$ 951,63.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Fique Atualizado</h2>
+      <p>Acompanhe nosso blog para novidades sobre a Previdencia Social e mudancas na legislacao.</p>
+      <a href="/blog" class="cta-button">Ver Blog</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin: 0 0 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+
+  .tabela-section {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .tabela-section h2 {
+    text-align: center;
+    color: #1a5f2a;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+  }
+
+  .tabela-inss {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .tabela-inss th {
+    background: #1a5f2a;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .tabela-inss td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .tabela-inss tr:last-child td {
+    border-bottom: none;
+  }
+
+  .tabela-inss tr:hover {
+    background: #f8f9fa;
+  }
+
+  .aliquota {
+    font-weight: 600;
+    color: #1a5f2a;
+  }
+
+  .info-box {
+    background: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #1a5f2a;
+  }
+
+  .info-box h3 {
+    color: #1a5f2a;
+    margin: 0 0 0.5rem;
+  }
+
+  .info-box p {
+    margin: 0;
+    color: #333;
+  }
+
+  .features {
+    padding: 4rem 0;
+    background: #f8f9fa;
+  }
+
+  .features h2 {
+    text-align: center;
+    color: #1a5f2a;
+    margin-bottom: 2rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .feature-card h3 {
+    color: #1a5f2a;
+    margin: 0 0 0.75rem;
+  }
+
+  .feature-card p {
+    margin: 0;
+    color: #555;
+  }
+
+  .cta-section {
+    padding: 4rem 0;
+    background: #1a5f2a;
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-section p {
+    margin: 0 0 1.5rem;
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #ffd700;
+    color: #1a5f2a;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    color: #1a5f2a;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 0;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .tabela-inss th,
+    .tabela-inss td {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>

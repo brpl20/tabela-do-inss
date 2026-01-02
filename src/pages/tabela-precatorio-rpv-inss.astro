@@ -1,0 +1,76 @@
+---
+import TablePage from '../components/TablePage.astro';
+
+const tableHeaders = ['Tipo', 'Valor Limite 2026', 'Prazo de Pagamento', 'Observacao'];
+
+const tableData = [
+  ['RPV (Requisicao de Pequeno Valor)', 'Ate 60 salarios minimos (R$ 97.260)', 'Ate 60 dias', 'Pagamento mais rapido'],
+  ['Precatorio Comum', 'Acima de 60 salarios minimos', 'Ate final do ano seguinte', 'Entra na fila orcamentaria'],
+  ['Precatorio Alimentar', 'Acima de 60 SM (idoso/doente)', 'Preferencia na fila', 'Prioridade no pagamento'],
+  ['Superpreferencia', 'Idosos 80+ ou doentes graves', 'Ate 3x o RPV com prioridade', 'Valor limitado a R$ 291.780'],
+];
+
+const faqItems = [
+  {
+    question: 'Qual a diferenca entre precatorio e RPV?',
+    answer: 'A diferenca e o valor. RPV (Requisicao de Pequeno Valor) sao dividas ate 60 salarios minimos e sao pagas em ate 60 dias. Precatorios sao valores maiores e entram na fila de pagamento do governo.'
+  },
+  {
+    question: 'Quanto tempo demora para receber um precatorio do INSS?',
+    answer: 'Precatorios expedidos ate 1 de julho de um ano devem ser pagos ate o final do ano seguinte. Na pratica, pode levar de 1 a 3 anos dependendo do orcamento disponivel.'
+  },
+  {
+    question: 'O que e precatorio alimentar?',
+    answer: 'Sao precatorios referentes a beneficios previdenciarios (aposentadoria, pensao) e tem preferencia sobre precatorios comuns na fila de pagamento.'
+  },
+  {
+    question: 'Quem tem direito a superpreferencia?',
+    answer: 'Idosos com 80 anos ou mais e pessoas com doencas graves definidas em lei. Recebem ate 3x o valor do RPV (cerca de R$ 291.780 em 2026) com prioridade absoluta.'
+  },
+  {
+    question: 'Posso vender meu precatorio?',
+    answer: 'Sim, e possivel ceder (vender) o precatorio para empresas especializadas, recebendo um valor menor a vista. Avalie se vale a pena considerando o desconto aplicado.'
+  },
+  {
+    question: 'Como consultar meu precatorio ou RPV?',
+    answer: 'Pelo site do tribunal (TRF da sua regiao) ou pelo portal de precatorios do Conselho da Justica Federal. Informe o numero do processo.'
+  }
+];
+---
+
+<TablePage
+  title="Tabela Precatorio e RPV INSS 2026"
+  description="Tabela de valores de precatorios e RPV do INSS 2026. Limites, prazos de pagamento e regras de preferencia atualizados."
+  intro="Valores e regras para pagamento de precatorios e RPV (Requisicao de Pequeno Valor) do INSS em 2026."
+  tableHeaders={tableHeaders}
+  tableData={tableData}
+  faqItems={faqItems}
+  extraContent={true}
+>
+  <h3>Calculo do Limite de RPV 2026</h3>
+  <div class="calc-box">
+    <p>Salario Minimo 2026: <strong>R$ 1.621,00</strong></p>
+    <p>Limite RPV (60 SM): <strong>R$ 97.260,00</strong></p>
+    <p>Superpreferencia (3x RPV): <strong>R$ 291.780,00</strong></p>
+  </div>
+
+  <h3>Cronograma de Pagamento</h3>
+  <ul>
+    <li><strong>RPV:</strong> Pago em ate 60 dias apos a requisicao</li>
+    <li><strong>Precatorio:</strong> Expedido ate 1/julho = pago ate 31/dez do ano seguinte</li>
+    <li><strong>Superpreferencia:</strong> Pago antes dos demais precatorios</li>
+  </ul>
+</TablePage>
+
+<style>
+  .calc-box {
+    background: #e8f5e9;
+    border-left: 4px solid #1a5f2a;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
+  .calc-box p {
+    margin: 0.25rem 0;
+  }
+</style>

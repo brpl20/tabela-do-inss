@@ -1,0 +1,184 @@
+---
+import Layout from './Layout.astro';
+
+const { frontmatter } = Astro.props;
+
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('pt-BR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  type="article"
+>
+  <article class="blog-post">
+    <div class="container">
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime={frontmatter.pubDate.toISOString()}>{formattedDate}</time>
+          <span class="author">por {frontmatter.author}</span>
+        </div>
+        <h1>{frontmatter.title}</h1>
+        {frontmatter.tags && frontmatter.tags.length > 0 && (
+          <div class="tags">
+            {frontmatter.tags.map(tag => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <div class="post-content">
+        <slot />
+      </div>
+
+      <footer class="post-footer">
+        <a href="/blog" class="back-link">← Voltar para o Blog</a>
+      </footer>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .blog-post {
+    padding: 2rem 0 4rem;
+  }
+
+  .post-header {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+
+  .post-meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .post-meta time {
+    text-transform: capitalize;
+  }
+
+  .post-meta .author {
+    margin-left: 1rem;
+  }
+
+  .post-header h1 {
+    font-size: 2.25rem;
+    color: #1a5f2a;
+    margin: 0 0 1rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: #e8f5e9;
+    color: #1a5f2a;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+  }
+
+  .post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .post-content :global(h2) {
+    color: #1a5f2a;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .post-content :global(h3) {
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .post-content :global(p) {
+    margin-bottom: 1rem;
+    color: #444;
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .post-content :global(li) {
+    margin-bottom: 0.5rem;
+    color: #444;
+  }
+
+  .post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+
+  .post-content :global(th) {
+    background: #1a5f2a;
+    color: white;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .post-content :global(td) {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .post-content :global(strong) {
+    color: #1a5f2a;
+  }
+
+  .post-content :global(code) {
+    background: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .post-footer {
+    max-width: 800px;
+    margin: 2rem auto 0;
+  }
+
+  .back-link {
+    color: #1a5f2a;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .post-header h1 {
+      font-size: 1.75rem;
+    }
+
+    .post-content {
+      padding: 1.5rem;
+    }
+  }
+</style>

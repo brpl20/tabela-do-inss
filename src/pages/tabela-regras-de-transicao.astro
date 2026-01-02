@@ -1,0 +1,78 @@
+---
+import TablePage from '../components/TablePage.astro';
+
+const tableHeaders = ['Regra de Transicao', 'Requisitos 2026', 'Observacao'];
+
+const tableData = [
+  ['Pontos (Homem)', '102 pontos + 35 anos contrib.', 'Aumenta 1 ponto/ano ate 105'],
+  ['Pontos (Mulher)', '92 pontos + 30 anos contrib.', 'Aumenta 1 ponto/ano ate 100'],
+  ['Idade Minima (Homem)', '64 anos + 35 anos contrib.', 'Idade final ja atingida'],
+  ['Idade Minima (Mulher)', '59 anos + 30 anos contrib.', 'Aumenta 6 meses/ano ate 62'],
+  ['Pedagio 50%', '+ 50% do tempo que faltava em 2019', 'Faltava menos de 2 anos'],
+  ['Pedagio 100%', '+ 100% do tempo + idade minima', 'H: 60 anos / M: 57 anos'],
+];
+
+const faqItems = [
+  {
+    question: 'O que sao regras de transicao?',
+    answer: 'Sao regras criadas pela reforma da previdencia (EC 103/2019) para quem ja contribuia antes de 13/11/2019, permitindo aposentar-se com requisitos intermediarios entre as regras antiga e nova.'
+  },
+  {
+    question: 'Qual a melhor regra de transicao para mim?',
+    answer: 'Depende da sua situacao. Quem tem mais idade se beneficia das regras de pontos ou idade progressiva. Quem estava proximo de aposentar pode usar o pedagio 50%. E necessario simular todas as opcoes.'
+  },
+  {
+    question: 'O que e a regra de pontos?',
+    answer: 'Soma-se idade + tempo de contribuicao. Em 2026, homens precisam de 102 pontos e mulheres 92 pontos. A pontuacao aumenta 1 ponto por ano ate atingir 105 (H) e 100 (M).'
+  },
+  {
+    question: 'Como funciona o pedagio de 50%?',
+    answer: 'Para quem faltava menos de 2 anos para aposentar em 2019, basta cumprir 50% a mais desse tempo. Ex: faltava 1 ano, cumpre 1,5 ano. Nao exige idade minima, mas o calculo usa fator previdenciario.'
+  },
+  {
+    question: 'Como funciona o pedagio de 100%?',
+    answer: 'Exige cumprir o dobro do tempo que faltava em 2019 + idade minima (60 homem, 57 mulher). A vantagem e que o calculo nao aplica fator previdenciario.'
+  }
+];
+---
+
+<TablePage
+  title="Tabela Regras de Transicao INSS 2026"
+  description="Tabela das regras de transicao da aposentadoria INSS 2026. Pontos, idade progressiva, pedagio 50% e 100%. Requisitos atualizados."
+  intro="Requisitos das regras de transicao para aposentadoria em 2026, aplicaveis a quem ja contribuia antes da reforma."
+  tableHeaders={tableHeaders}
+  tableData={tableData}
+  faqItems={faqItems}
+  extraContent={true}
+>
+  <h3>Evolucao da Regra de Pontos</h3>
+  <table class="mini-table">
+    <tr><th>Ano</th><th>Homem</th><th>Mulher</th></tr>
+    <tr><td>2024</td><td>100 pontos</td><td>90 pontos</td></tr>
+    <tr><td>2025</td><td>101 pontos</td><td>91 pontos</td></tr>
+    <tr><td>2026</td><td>102 pontos</td><td>92 pontos</td></tr>
+    <tr><td>2027</td><td>103 pontos</td><td>93 pontos</td></tr>
+    <tr><td>Final</td><td>105 pontos</td><td>100 pontos</td></tr>
+  </table>
+</TablePage>
+
+<style>
+  .mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  .mini-table th, .mini-table td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  .mini-table th {
+    background: #1a5f2a;
+    color: white;
+  }
+  .mini-table tr:nth-child(even) {
+    background: #f8f9fa;
+  }
+</style>

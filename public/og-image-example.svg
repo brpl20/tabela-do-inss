@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a5f2a"/>
+      <stop offset="100%" stop-color="#2d8a3e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+
+  <rect x="40" y="40" width="1120" height="550" rx="20" ry="20" fill="rgba(255,255,255,0.08)"/>
+
+  <g fill="#ffd700">
+    <circle cx="1100" cy="90" r="6"/>
+    <circle cx="1070" cy="110" r="4"/>
+    <circle cx="1125" cy="125" r="3"/>
+  </g>
+
+  <text x="80" y="210" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#ffffff">Tabela do INSS 2026</text>
+  <text x="80" y="270" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.95)">Tabelas, faixas e contribuicao previdenciaria</text>
+
+  <g>
+    <rect x="80" y="330" width="760" height="180" rx="12" ry="12" fill="#ffffff" opacity="0.12"/>
+    <text x="110" y="380" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="22" fill="#ffd700" font-weight="600">Codigos do INSS (GPS)</text>
+    <text x="110" y="415" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="18" fill="#ffffff">1007 • 1163 • 1406 • 1473 • 1929 • MEI</text>
+    <text x="110" y="450" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="18" fill="#ffffff">Salario minimo 2026: R$ 1.621,00</text>
+  </g>
+
+  <text x="80" y="540" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="20" fill="#ffffff">tabeladoinss.com.br</text>
+</svg>
+

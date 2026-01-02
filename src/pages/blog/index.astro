@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const now = new Date();
+const posts = (await getCollection('blog'))
+  .filter((p) => p.data.pubDate <= now)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString('pt-BR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+---
+
+<Layout
+  title="Blog"
+  description="Artigos e noticias sobre a Previdencia Social brasileira, INSS, aposentadoria e beneficios."
+>
+  <section class="blog-header">
+    <div class="container">
+      <h1>Blog</h1>
+      <p>Artigos e noticias sobre a Previdencia Social brasileira</p>
+    </div>
+  </section>
+
+  <section class="blog-list">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p class="no-posts">Nenhum artigo publicado ainda.</p>
+      ) : (
+        <div class="posts-grid">
+          {posts.map(post => (
+            <article class="post-card">
+              <div class="post-card-content">
+                <div class="post-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                </div>
+                <h2>
+                  <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                </h2>
+                <p>{post.data.description}</p>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="tags">
+                    {post.data.tags.slice(0, 3).map(tag => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+                <a href={`/blog/${post.id}`} class="read-more">Ler mais →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-header {
+    background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .blog-header h1 {
+    font-size: 2.25rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .blog-header p {
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .blog-list {
+    padding: 3rem 0;
+  }
+
+  .no-posts {
+    text-align: center;
+    color: #666;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  .post-card-content {
+    padding: 1.5rem;
+  }
+
+  .post-meta {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-meta time {
+    text-transform: capitalize;
+  }
+
+  .post-card h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
+  }
+
+  .post-card h2 a {
+    color: #1a5f2a;
+    text-decoration: none;
+  }
+
+  .post-card h2 a:hover {
+    text-decoration: underline;
+  }
+
+  .post-card p {
+    color: #555;
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: #e8f5e9;
+    color: #1a5f2a;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+  }
+
+  .read-more {
+    color: #1a5f2a;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .read-more:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .blog-header h1 {
+      font-size: 1.75rem;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
