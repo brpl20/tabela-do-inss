@@ -1,57 +1,57 @@
 ---
 import TablePage from '../components/TablePage.astro';
 
-const tableHeaders = ['Tipo de Contribuinte', 'Aliquota', 'Base de Calculo', 'Valor Mensal'];
+const tableHeaders = ['Tipo de Contribuinte', 'Alíquota', 'Base de Cálculo', 'Valor Mensal'];
 
 const tableData = [
   ['Contribuinte Individual (20%)', '20%', 'R$ 1.621,00 a R$ 8.157,41', 'R$ 324,20 a R$ 1.631,48'],
-  ['Contribuinte Individual (11%)', '11%', 'Salario Minimo (R$ 1.621,00)', 'R$ 178,31'],
+  ['Contribuinte Individual (11%)', '11%', 'Salário Mínimo (R$ 1.621,00)', 'R$ 178,31'],
   ['Facultativo (20%)', '20%', 'R$ 1.621,00 a R$ 8.157,41', 'R$ 324,20 a R$ 1.631,48'],
-  ['Facultativo (11%)', '11%', 'Salario Minimo (R$ 1.621,00)', 'R$ 178,31'],
-  ['Facultativo Baixa Renda (5%)', '5%', 'Salario Minimo (R$ 1.621,00)', 'R$ 81,05'],
-  ['MEI (via DAS)', '5%', 'Salario Minimo (R$ 1.621,00)', 'R$ 81,05 + taxas'],
+  ['Facultativo (11%)', '11%', 'Salário Mínimo (R$ 1.621,00)', 'R$ 178,31'],
+  ['Facultativo Baixa Renda (5%)', '5%', 'Salário Mínimo (R$ 1.621,00)', 'R$ 81,05'],
+  ['MEI (via DAS)', '5%', 'Salário Mínimo (R$ 1.621,00)', 'R$ 81,05 + taxas'],
 ];
 
 const faqItems = [
   {
-    question: 'Qual a diferenca entre contribuinte individual e facultativo?',
-    answer: 'O contribuinte individual exerce atividade remunerada por conta propria (autonomos, empresarios). O facultativo nao exerce atividade remunerada, mas deseja contribuir para ter direito aos beneficios (estudantes, donas de casa, desempregados).'
+    question: 'Qual a diferença entre contribuinte individual e facultativo?',
+    answer: 'O contribuinte individual exerce atividade remunerada por conta própria (autônomos, empresários). O facultativo não exerce atividade remunerada, mas deseja contribuir para ter direito aos benefícios (estudantes, donas de casa, desempregados).'
   },
   {
-    question: 'Posso contribuir com 11% e me aposentar por tempo de contribuicao?',
-    answer: 'Nao. A aliquota de 11% sobre o salario minimo da direito apenas a aposentadoria por idade. Para aposentadoria por tempo de contribuicao, e necessario contribuir com 20%.'
+    question: 'Posso contribuir com 11% e me aposentar por tempo de contribuição?',
+    answer: 'Não. A alíquota de 11% sobre o salário mínimo dá direito apenas à aposentadoria por idade. Para aposentadoria por tempo de contribuição, é necessário contribuir com 20%.'
   },
   {
-    question: 'O que e o plano simplificado de 11%?',
-    answer: 'E uma forma de contribuicao reduzida que da direito a aposentadoria por idade, auxilio-doenca, salario-maternidade e pensao por morte, com valor do beneficio de 1 salario minimo.'
+    question: 'O que é o plano simplificado de 11%?',
+    answer: 'É uma forma de contribuição reduzida que dá direito à aposentadoria por idade, auxílio-doença, salário-maternidade e pensão por morte, com valor do benefício de 1 salário mínimo.'
   },
   {
     question: 'Quem pode contribuir como facultativo baixa renda?',
-    answer: 'Pessoas de familia de baixa renda inscrita no CadUnico, que nao exercam atividade remunerada e se dediquem exclusivamente ao trabalho domestico em sua propria residencia.'
+    answer: 'Pessoas de família de baixa renda inscrita no CadÚnico, que não exerçam atividade remunerada e se dediquem exclusivamente ao trabalho doméstico em sua própria residência.'
   },
   {
-    question: 'Como pagar a contribuicao como autonomo?',
-    answer: 'Atraves da GPS (Guia da Previdencia Social), que pode ser gerada no site ou app Meu INSS. O pagamento deve ser feito ate o dia 15 do mes seguinte ao da competencia.'
+    question: 'Como pagar a contribuição como autônomo?',
+    answer: 'Através da GPS (Guia da Previdência Social), que pode ser gerada no site ou app Meu INSS. O pagamento deve ser feito até o dia 15 do mês seguinte ao da competência.'
   }
 ];
 ---
 
 <TablePage
-  title="Tabela INSS Contribuinte Individual e Autonomo 2026"
-  description="Tabela de contribuicao INSS 2026 para contribuintes individuais, autonomos e facultativos. Confira aliquotas de 5%, 11% e 20% e valores atualizados."
-  intro="Valores e aliquotas de contribuicao para autonomos, profissionais liberais, facultativos e MEI em 2026."
+  title="Tabela INSS Contribuinte Individual e Autônomo 2026"
+  description="Tabela de contribuição INSS 2026 para contribuintes individuais, autônomos e facultativos. Confira alíquotas de 5%, 11% e 20% e valores atualizados."
+  intro="Valores e alíquotas de contribuição para autônomos, profissionais liberais, facultativos e MEI em 2026."
   tableHeaders={tableHeaders}
   tableData={tableData}
   faqItems={faqItems}
   extraContent={true}
 >
-  <h3>Codigos de Pagamento GPS</h3>
+  <h3>Códigos de Pagamento GPS</h3>
   <ul>
     <li><strong>1007</strong> - Contribuinte Individual - Plano Normal (20%)</li>
     <li><strong>1163</strong> - Contribuinte Individual - Plano Simplificado (11%)</li>
     <li><strong>1406</strong> - Facultativo - Plano Normal (20%)</li>
     <li><strong>1473</strong> - Facultativo - Plano Simplificado (11%)</li>
-    <li><strong>1929</strong> - Facultativo Baixa Renda - CadUnico (5%)</li>
+    <li><strong>1929</strong> - Facultativo Baixa Renda - CadÚnico (5%)</li>
   </ul>
-  <p><strong>MEI:</strong> A contribuicao e paga via DAS-MEI (nao usa GPS). O valor do INSS e R$ 81,05 + R$ 1,00 de ICMS e/ou R$ 5,00 de ISS conforme a atividade.</p>
+  <p><strong>MEI:</strong> A contribuição é paga via DAS-MEI (não usa GPS). O valor do INSS é R$ 81,05 + R$ 1,00 de ICMS e/ou R$ 5,00 de ISS conforme a atividade.</p>
 </TablePage>

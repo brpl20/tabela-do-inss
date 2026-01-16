@@ -1,41 +1,41 @@
 ---
 import TablePage from '../components/TablePage.astro';
 
-const title = 'Tabela de Codigos do INSS (GPS) 2026';
-const description = 'Tabela de codigos de pagamento do INSS (GPS) para 2026: contribuinte individual, facultativo, baixa renda e MEI, com aliquotas, base e observacoes.';
-const intro = 'Referencia rapida dos codigos de pagamento (GPS) mais usados para contribuicao ao INSS em 2026. Valores calculados com salario minimo de R$ 1.621,00.';
+const title = 'Tabela de Códigos do INSS (GPS) 2026';
+const description = 'Tabela de códigos de pagamento do INSS (GPS) para 2026: contribuinte individual, facultativo, baixa renda e MEI, com alíquotas, base e observações.';
+const intro = 'Referência rápida dos códigos de pagamento (GPS) mais usados para contribuição ao INSS em 2026. Valores calculados com salário mínimo de R$ 1.621,00.';
 
-const tableHeaders = ['Codigo', 'Categoria', 'Plano', 'Aliquota', 'Base de Calculo', 'Observacoes'];
+const tableHeaders = ['Código', 'Categoria', 'Plano', 'Alíquota', 'Base de Cálculo', 'Observações'];
 
 const tableData = [
-  ['1007', 'Contribuinte Individual', 'Plano Normal', '20%', 'R$ 1.621,00 a R$ 8.157,41', 'Direito a todos os beneficios'],
-  ['1163', 'Contribuinte Individual', 'Plano Simplificado', '11%', 'Somente salario minimo', 'Sem aposentadoria por tempo; consultar complemento'],
-  ['1406', 'Facultativo', 'Plano Normal', '20%', 'R$ 1.621,00 a R$ 8.157,41', 'Sem renda; todos os beneficios'],
-  ['1473', 'Facultativo', 'Plano Simplificado', '11%', 'Somente salario minimo', 'Beneficios basicos; sem tempo de contribuicao'],
-  ['1929', 'Facultativo Baixa Renda', '—', '5%', 'Somente salario minimo', 'Requer CadUnico; dedicacao ao lar'],
-  ['MEI (DAS)', 'MEI', '—', '5%', 'Somente salario minimo', 'Nao usa GPS; pago via DAS-MEI'],
+  ['1007', 'Contribuinte Individual', 'Plano Normal', '20%', 'R$ 1.621,00 a R$ 8.157,41', 'Direito a todos os benefícios'],
+  ['1163', 'Contribuinte Individual', 'Plano Simplificado', '11%', 'Somente salário mínimo', 'Sem aposentadoria por tempo; consultar complemento'],
+  ['1406', 'Facultativo', 'Plano Normal', '20%', 'R$ 1.621,00 a R$ 8.157,41', 'Sem renda; todos os benefícios'],
+  ['1473', 'Facultativo', 'Plano Simplificado', '11%', 'Somente salário mínimo', 'Benefícios básicos; sem tempo de contribuição'],
+  ['1929', 'Facultativo Baixa Renda', '—', '5%', 'Somente salário mínimo', 'Requer CadÚnico; dedicação ao lar'],
+  ['MEI (DAS)', 'MEI', '—', '5%', 'Somente salário mínimo', 'Não usa GPS; pago via DAS-MEI'],
 ];
 
 const faqItems = [
   {
-    question: 'Qual a diferenca entre Contribuinte Individual e Facultativo?',
-    answer: 'Contribuinte Individual exerce atividade remunerada por conta propria (autonomos, profissionais liberais). Facultativo nao possui renda de trabalho e contribui de forma voluntaria (estudantes, donas de casa, desempregados).'
+    question: 'Qual a diferença entre Contribuinte Individual e Facultativo?',
+    answer: 'Contribuinte Individual exerce atividade remunerada por conta própria (autônomos, profissionais liberais). Facultativo não possui renda de trabalho e contribui de forma voluntária (estudantes, donas de casa, desempregados).'
   },
   {
-    question: 'Plano Simplificado (11%) da direito a aposentadoria por tempo?',
-    answer: 'Nao. O plano simplificado de 11% (codigos 1163 e 1473) nao da direito a aposentadoria por tempo de contribuicao. Para esse direito, utilize 20% no plano normal.'
+    question: 'Plano Simplificado (11%) dá direito à aposentadoria por tempo?',
+    answer: 'Não. O plano simplificado de 11% (códigos 1163 e 1473) não dá direito à aposentadoria por tempo de contribuição. Para esse direito, utilize 20% no plano normal.'
   },
   {
-    question: 'Quem pode usar o codigo 1929 (5%)?',
-    answer: 'Facultativo de baixa renda, maior de 16 anos, sem atividade remunerada, inscrito e com dados atualizados no CadUnico, que se dedique ao trabalho domestico no proprio lar.'
+    question: 'Quem pode usar o código 1929 (5%)?',
+    answer: 'Facultativo de baixa renda, maior de 16 anos, sem atividade remunerada, inscrito e com dados atualizados no CadÚnico, que se dedique ao trabalho doméstico no próprio lar.'
   },
   {
-    question: 'MEI usa codigo de GPS?',
-    answer: 'Nao. O MEI paga INSS dentro do DAS-MEI (5% do salario minimo mais tributos municipais/estaduais conforme CNAE). Nao se usa GPS para a contribuicao mensal do MEI.'
+    question: 'MEI usa código de GPS?',
+    answer: 'Não. O MEI paga INSS dentro do DAS-MEI (5% do salário mínimo mais tributos municipais/estaduais conforme CNAE). Não se usa GPS para a contribuição mensal do MEI.'
   },
   {
     question: 'Qual o vencimento da GPS?',
-    answer: 'Ate o dia 15 do mes seguinte a competencia. Se cair em fim de semana/feriado, no proximo dia util.'
+    answer: 'Até o dia 15 do mês seguinte à competência. Se cair em fim de semana/feriado, no próximo dia útil.'
   }
 ];
 ---
@@ -49,13 +49,12 @@ const faqItems = [
   faqItems={faqItems}
   extraContent={true}
 >
-  <h3>Valores de Referencia 2026</h3>
+  <h3>Valores de Referência 2026</h3>
   <ul>
-    <li><strong>Salario minimo:</strong> R$ 1.621,00</li>
-    <li><strong>Teto do INSS (referencia 2025):</strong> R$ 8.157,41 (aguardando atualizacao oficial 2026)</li>
-    <li><strong>Exemplos no minimo:</strong> 20% = R$ 324,20 | 11% = R$ 178,31 | 5% = R$ 81,05</li>
+    <li><strong>Salário mínimo:</strong> R$ 1.621,00</li>
+    <li><strong>Teto do INSS (referência 2025):</strong> R$ 8.157,41 (aguardando atualização oficial 2026)</li>
+    <li><strong>Exemplos no mínimo:</strong> 20% = R$ 324,20 | 11% = R$ 178,31 | 5% = R$ 81,05</li>
   </ul>
 
-  <p><strong>Observacao:</strong> Alguns cenarios permitem complemento para quem recolhe 11% e deseja contar tempo de contribuicao. Verifique o codigo de complemento vigente antes de efetuar o pagamento.</p>
+  <p><strong>Observação:</strong> Alguns cenários permitem complemento para quem recolhe 11% e deseja contar tempo de contribuição. Verifique o código de complemento vigente antes de efetuar o pagamento.</p>
 </TablePage>
-

@@ -1,64 +1,64 @@
 ---
 import TablePage from '../components/TablePage.astro';
 
-const tableHeaders = ['Tipo', 'Valor Limite 2026', 'Prazo de Pagamento', 'Observacao'];
+const tableHeaders = ['Tipo', 'Valor Limite 2026', 'Prazo de Pagamento', 'Observação'];
 
 const tableData = [
-  ['RPV (Requisicao de Pequeno Valor)', 'Ate 60 salarios minimos (R$ 97.260)', 'Ate 60 dias', 'Pagamento mais rapido'],
-  ['Precatorio Comum', 'Acima de 60 salarios minimos', 'Ate final do ano seguinte', 'Entra na fila orcamentaria'],
-  ['Precatorio Alimentar', 'Acima de 60 SM (idoso/doente)', 'Preferencia na fila', 'Prioridade no pagamento'],
-  ['Superpreferencia', 'Idosos 80+ ou doentes graves', 'Ate 3x o RPV com prioridade', 'Valor limitado a R$ 291.780'],
+  ['RPV (Requisição de Pequeno Valor)', 'Até 60 salários mínimos (R$ 97.260,00)', 'Até 60 dias', 'Pagamento mais rápido'],
+  ['Precatório Comum', 'Acima de 60 salários mínimos', 'Até o final do ano seguinte', 'Entra na fila orçamentária'],
+  ['Precatório Alimentar', 'Acima de 60 SM (idoso/doente)', 'Preferência na fila', 'Prioridade no pagamento'],
+  ['Superpreferência', 'Idosos 80+ ou doentes graves', 'Até 3x o RPV com prioridade', 'Valor limitado a R$ 291.780,00'],
 ];
 
 const faqItems = [
   {
-    question: 'Qual a diferenca entre precatorio e RPV?',
-    answer: 'A diferenca e o valor. RPV (Requisicao de Pequeno Valor) sao dividas ate 60 salarios minimos e sao pagas em ate 60 dias. Precatorios sao valores maiores e entram na fila de pagamento do governo.'
+    question: 'Qual a diferença entre precatório e RPV?',
+    answer: 'A diferença é o valor. RPV (Requisição de Pequeno Valor) são dívidas de até 60 salários mínimos e são pagas em até 60 dias. Precatórios são valores maiores e entram na fila de pagamento do governo.'
   },
   {
-    question: 'Quanto tempo demora para receber um precatorio do INSS?',
-    answer: 'Precatorios expedidos ate 1 de julho de um ano devem ser pagos ate o final do ano seguinte. Na pratica, pode levar de 1 a 3 anos dependendo do orcamento disponivel.'
+    question: 'Quanto tempo demora para receber um precatório do INSS?',
+    answer: 'Precatórios expedidos até 1º de julho de um ano devem ser pagos até o final do ano seguinte. Na prática, pode levar de 1 a 3 anos, dependendo do orçamento disponível.'
   },
   {
-    question: 'O que e precatorio alimentar?',
-    answer: 'Sao precatorios referentes a beneficios previdenciarios (aposentadoria, pensao) e tem preferencia sobre precatorios comuns na fila de pagamento.'
+    question: 'O que é precatório alimentar?',
+    answer: 'São precatórios referentes a benefícios previdenciários (aposentadoria, pensão) e têm preferência sobre precatórios comuns na fila de pagamento.'
   },
   {
-    question: 'Quem tem direito a superpreferencia?',
-    answer: 'Idosos com 80 anos ou mais e pessoas com doencas graves definidas em lei. Recebem ate 3x o valor do RPV (cerca de R$ 291.780 em 2026) com prioridade absoluta.'
+    question: 'Quem tem direito à superpreferência?',
+    answer: 'Idosos com 80 anos ou mais e pessoas com doenças graves definidas em lei. Recebem até 3x o valor do RPV (cerca de R$ 291.780,00 em 2026) com prioridade absoluta.'
   },
   {
-    question: 'Posso vender meu precatorio?',
-    answer: 'Sim, e possivel ceder (vender) o precatorio para empresas especializadas, recebendo um valor menor a vista. Avalie se vale a pena considerando o desconto aplicado.'
+    question: 'Posso vender meu precatório?',
+    answer: 'Sim, é possível ceder (vender) o precatório para empresas especializadas, recebendo um valor menor à vista. Avalie se vale a pena considerando o desconto aplicado.'
   },
   {
-    question: 'Como consultar meu precatorio ou RPV?',
-    answer: 'Pelo site do tribunal (TRF da sua regiao) ou pelo portal de precatorios do Conselho da Justica Federal. Informe o numero do processo.'
+    question: 'Como consultar meu precatório ou RPV?',
+    answer: 'Pelo site do tribunal (TRF da sua região) ou pelo portal de precatórios do Conselho da Justiça Federal. Informe o número do processo.'
   }
 ];
 ---
 
 <TablePage
-  title="Tabela Precatorio e RPV INSS 2026"
-  description="Tabela de valores de precatorios e RPV do INSS 2026. Limites, prazos de pagamento e regras de preferencia atualizados."
-  intro="Valores e regras para pagamento de precatorios e RPV (Requisicao de Pequeno Valor) do INSS em 2026."
+  title="Tabela Precatório e RPV INSS 2026"
+  description="Tabela de valores de precatórios e RPV do INSS 2026. Limites, prazos de pagamento e regras de preferência atualizados."
+  intro="Valores e regras para pagamento de precatórios e RPV (Requisição de Pequeno Valor) do INSS em 2026."
   tableHeaders={tableHeaders}
   tableData={tableData}
   faqItems={faqItems}
   extraContent={true}
 >
-  <h3>Calculo do Limite de RPV 2026</h3>
+  <h3>Cálculo do Limite de RPV 2026</h3>
   <div class="calc-box">
-    <p>Salario Minimo 2026: <strong>R$ 1.621,00</strong></p>
+    <p>Salário mínimo 2026: <strong>R$ 1.621,00</strong></p>
     <p>Limite RPV (60 SM): <strong>R$ 97.260,00</strong></p>
-    <p>Superpreferencia (3x RPV): <strong>R$ 291.780,00</strong></p>
+    <p>Superpreferência (3x RPV): <strong>R$ 291.780,00</strong></p>
   </div>
 
   <h3>Cronograma de Pagamento</h3>
   <ul>
-    <li><strong>RPV:</strong> Pago em ate 60 dias apos a requisicao</li>
-    <li><strong>Precatorio:</strong> Expedido ate 1/julho = pago ate 31/dez do ano seguinte</li>
-    <li><strong>Superpreferencia:</strong> Pago antes dos demais precatorios</li>
+    <li><strong>RPV:</strong> Pago em até 60 dias após a requisição</li>
+    <li><strong>Precatório:</strong> Expedido até 1º de julho = pago até 31 de dezembro do ano seguinte</li>
+    <li><strong>Superpreferência:</strong> Pago antes dos demais precatórios</li>
   </ul>
 </TablePage>
 

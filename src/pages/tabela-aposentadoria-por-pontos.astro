@@ -1,7 +1,7 @@
 ---
 import TablePage from '../components/TablePage.astro';
 
-const tableHeaders = ['Ano', 'Pontos Homem', 'Pontos Mulher', 'Tempo Minimo'];
+const tableHeaders = ['Ano', 'Pontos Homem', 'Pontos Mulher', 'Tempo Mínimo'];
 
 const tableData = [
   ['2024', '100', '90', 'H: 35 anos / M: 30 anos'],
@@ -17,52 +17,52 @@ const tableData = [
 const faqItems = [
   {
     question: 'Como calcular meus pontos para aposentadoria?',
-    answer: 'Some sua idade atual com seu tempo total de contribuicao. Por exemplo: 58 anos de idade + 36 anos de contribuicao = 94 pontos.'
+    answer: 'Some sua idade atual com seu tempo total de contribuição. Por exemplo: 58 anos de idade + 36 anos de contribuição = 94 pontos.'
   },
   {
-    question: 'Meses de contribuicao contam como fracao de ponto?',
-    answer: 'Sim. Se voce tem 35 anos e 6 meses de contribuicao, conta como 35,5 anos. O mesmo vale para a idade: 58 anos e 4 meses = 58,33 anos.'
+    question: 'Meses de contribuição contam como fração de ponto?',
+    answer: 'Sim. Se você tem 35 anos e 6 meses de contribuição, conta como 35,5 anos. O mesmo vale para a idade: 58 anos e 4 meses = 58,33 anos.'
   },
   {
-    question: 'Preciso ter o tempo minimo de contribuicao alem dos pontos?',
-    answer: 'Sim. Alem de atingir a pontuacao, homens precisam de no minimo 35 anos de contribuicao e mulheres 30 anos. Nao basta so atingir os pontos.'
+    question: 'Preciso ter o tempo mínimo de contribuição além dos pontos?',
+    answer: 'Sim. Além de atingir a pontuação, homens precisam de no mínimo 35 anos de contribuição e mulheres 30 anos. Não basta só atingir os pontos.'
   },
   {
-    question: 'A regra de pontos e a melhor opcao?',
-    answer: 'Geralmente e vantajosa para quem comecou a trabalhar cedo. Compare com outras regras de transicao (idade progressiva, pedagio) para ver qual resulta em melhor beneficio.'
+    question: 'A regra de pontos é a melhor opção?',
+    answer: 'Geralmente é vantajosa para quem começou a trabalhar cedo. Compare com outras regras de transição (idade progressiva, pedágio) para ver qual resulta em melhor benefício.'
   },
   {
-    question: 'Quando a pontuacao para de aumentar?',
-    answer: 'Para homens, a pontuacao para em 105 pontos (atingido em 2028). Para mulheres, para em 100 pontos (atingido em 2033).'
+    question: 'Quando a pontuação para de aumentar?',
+    answer: 'Para homens, a pontuação para em 105 pontos (atingido em 2028). Para mulheres, para em 100 pontos (atingido em 2033).'
   }
 ];
 ---
 
 <TablePage
   title="Tabela Aposentadoria por Pontos INSS 2026"
-  description="Tabela da regra de pontos para aposentadoria INSS 2026. Confira a pontuacao necessaria para homens e mulheres ate 2033."
-  intro="Pontuacao necessaria para aposentadoria pela regra de transicao de pontos, de 2024 a 2033."
+  description="Tabela da regra de pontos para aposentadoria INSS 2026. Confira a pontuação necessária para homens e mulheres até 2033."
+  intro="Pontuação necessária para aposentadoria pela regra de transição de pontos, de 2024 a 2033."
   tableHeaders={tableHeaders}
   tableData={tableData}
   faqItems={faqItems}
   extraContent={true}
 >
-  <h3>Exemplo de Calculo</h3>
+  <h3>Exemplo de Cálculo</h3>
   <div class="example-box">
-    <p><strong>Maria, 57 anos, 35 anos de contribuicao:</strong></p>
+    <p><strong>Maria, 57 anos, 35 anos de contribuição:</strong></p>
     <ul>
       <li>Pontos: 57 + 35 = <strong>92 pontos</strong></li>
-      <li>Pontuacao necessaria em 2026 (mulher): 92 pontos</li>
-      <li>Tempo minimo: 30 anos (atendido)</li>
+      <li>Pontuação necessária em 2026 (mulher): 92 pontos</li>
+      <li>Tempo mínimo: 30 anos (atendido)</li>
       <li><strong>Resultado: Pode aposentar em 2026!</strong></li>
     </ul>
   </div>
 
   <div class="example-box">
-    <p><strong>Joao, 60 anos, 40 anos de contribuicao:</strong></p>
+    <p><strong>João, 60 anos, 40 anos de contribuição:</strong></p>
     <ul>
       <li>Pontos: 60 + 40 = <strong>100 pontos</strong></li>
-      <li>Pontuacao necessaria em 2026 (homem): 102 pontos</li>
+      <li>Pontuação necessária em 2026 (homem): 102 pontos</li>
       <li><strong>Resultado: Faltam 2 pontos. Pode aposentar em 2027.</strong></li>
     </ul>
   </div>

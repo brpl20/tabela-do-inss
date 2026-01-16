@@ -1,7 +1,7 @@
 ---
 import TablePage from '../components/TablePage.astro';
 
-const tableHeaders = ['Grau de Deficiencia', 'Tempo Homem', 'Tempo Mulher', 'Idade Minima'];
+const tableHeaders = ['Grau de Deficiência', 'Tempo Homem', 'Tempo Mulher', 'Idade Mínima'];
 
 const tableData = [
   ['Grave', '25 anos', '20 anos', '-'],
@@ -12,42 +12,42 @@ const tableData = [
 
 const faqItems = [
   {
-    question: 'O que e aposentadoria da pessoa com deficiencia?',
-    answer: 'E um beneficio com requisitos diferenciados para pessoas que comprovem deficiencia fisica, mental, intelectual ou sensorial de longo prazo que afete sua participacao na sociedade.'
+    question: 'O que é aposentadoria da pessoa com deficiência?',
+    answer: 'É um benefício com requisitos diferenciados para pessoas que comprovem deficiência física, mental, intelectual ou sensorial de longo prazo que afete sua participação na sociedade.'
   },
   {
-    question: 'Como e definido o grau de deficiencia?',
-    answer: 'Atraves de pericia medica e avaliacao social do INSS, utilizando o Indice de Funcionalidade Brasileiro (IFBrA). A avaliacao considera fatores clinicos e sociais.'
+    question: 'Como é definido o grau de deficiência?',
+    answer: 'Através de perícia médica e avaliação social do INSS, utilizando o Índice de Funcionalidade Brasileiro (IFBrA). A avaliação considera fatores clínicos e sociais.'
   },
   {
-    question: 'Preciso ter a deficiencia durante todo o periodo de contribuicao?',
-    answer: 'Nao. E possivel somar periodos com diferentes graus de deficiencia ou mesmo sem deficiencia, usando regras de conversao proporcionais.'
+    question: 'Preciso ter a deficiência durante todo o período de contribuição?',
+    answer: 'Não. É possível somar períodos com diferentes graus de deficiência ou mesmo sem deficiência, usando regras de conversão proporcionais.'
   },
   {
-    question: 'A reforma da previdencia mudou essa aposentadoria?',
-    answer: 'A Lei Complementar 142/2013 que regula essa aposentadoria nao foi alterada pela reforma. Os requisitos de tempo de contribuicao permanecem os mesmos.'
+    question: 'A reforma da previdência mudou essa aposentadoria?',
+    answer: 'A Lei Complementar 142/2013 que regula essa aposentadoria não foi alterada pela reforma. Os requisitos de tempo de contribuição permanecem os mesmos.'
   },
   {
-    question: 'O BPC e a mesma coisa que aposentadoria por deficiencia?',
-    answer: 'Nao. O BPC (Beneficio de Prestacao Continuada) e assistencial, para pessoas com deficiencia de baixa renda que nao conseguem se manter. A aposentadoria e previdenciaria e exige contribuicao.'
+    question: 'O BPC é a mesma coisa que aposentadoria por deficiência?',
+    answer: 'Não. O BPC (Benefício de Prestação Continuada) é assistencial, para pessoas com deficiência de baixa renda que não conseguem se manter. A aposentadoria é previdenciária e exige contribuição.'
   }
 ];
 ---
 
 <TablePage
-  title="Tabela INSS Pessoa com Deficiencia 2026"
-  description="Tabela de aposentadoria da pessoa com deficiencia INSS 2026. Tempo de contribuicao por grau de deficiencia: grave, moderada e leve."
-  intro="Requisitos de aposentadoria para pessoas com deficiencia conforme Lei Complementar 142/2013."
+  title="Tabela INSS Pessoa com Deficiência 2026"
+  description="Tabela de aposentadoria da pessoa com deficiência INSS 2026. Tempo de contribuição por grau de deficiência: grave, moderada e leve."
+  intro="Requisitos de aposentadoria para pessoas com deficiência conforme Lei Complementar 142/2013."
   tableHeaders={tableHeaders}
   tableData={tableData}
   faqItems={faqItems}
   extraContent={true}
 >
-  <h3>Conversao entre Graus de Deficiencia</h3>
-  <p>Se voce teve diferentes graus de deficiencia ao longo da vida, os periodos podem ser convertidos:</p>
+  <h3>Conversão entre Graus de Deficiência</h3>
+  <p>Se você teve diferentes graus de deficiência ao longo da vida, os períodos podem ser convertidos:</p>
   <ul>
-    <li>Tempo com deficiencia <strong>grave</strong> pode ser convertido para moderada ou leve</li>
-    <li>Tempo com deficiencia <strong>moderada</strong> pode ser convertido para leve</li>
-    <li>Tempo <strong>sem deficiencia</strong> tambem pode ser somado com fator de conversao</li>
+    <li>Tempo com deficiência <strong>grave</strong> pode ser convertido para moderada ou leve</li>
+    <li>Tempo com deficiência <strong>moderada</strong> pode ser convertido para leve</li>
+    <li>Tempo <strong>sem deficiência</strong> também pode ser somado com fator de conversão</li>
   </ul>
 </TablePage>

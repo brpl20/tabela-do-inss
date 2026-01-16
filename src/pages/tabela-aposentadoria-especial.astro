@@ -1,53 +1,53 @@
 ---
 import TablePage from '../components/TablePage.astro';
 
-const tableHeaders = ['Tempo de Exposicao', 'Agentes Nocivos', 'Idade Minima', 'Pontos'];
+const tableHeaders = ['Tempo de Exposição', 'Agentes Nocivos', 'Idade Mínima', 'Pontos'];
 
 const tableData = [
-  ['15 anos', 'Mineracao subterranea, amianto', '55 anos', '66 pontos'],
-  ['20 anos', 'Mineracao superficie, exposicao a amianto', '58 anos', '76 pontos'],
-  ['25 anos', 'Ruido, calor, agentes quimicos, biologicos', '60 anos', '86 pontos'],
+  ['15 anos', 'Mineração subterrânea, amianto', '55 anos', '66 pontos'],
+  ['20 anos', 'Mineração em superfície, exposição a amianto', '58 anos', '76 pontos'],
+  ['25 anos', 'Ruído, calor, agentes químicos, biológicos', '60 anos', '86 pontos'],
 ];
 
 const faqItems = [
   {
-    question: 'O que e aposentadoria especial?',
-    answer: 'E um beneficio concedido a quem trabalha exposto a agentes nocivos a saude (fisicos, quimicos ou biologicos) de forma permanente. O tempo de contribuicao exigido e menor que na aposentadoria comum.'
+    question: 'O que é aposentadoria especial?',
+    answer: 'É um benefício concedido a quem trabalha exposto a agentes nocivos à saúde (físicos, químicos ou biológicos) de forma permanente. O tempo de contribuição exigido é menor que na aposentadoria comum.'
   },
   {
-    question: 'Quais profissoes tem direito a aposentadoria especial?',
-    answer: 'Trabalhadores expostos a agentes nocivos como: mineradores, eletricistas de alta tensao, profissionais de saude expostos a agentes biologicos, trabalhadores com exposicao a ruido acima de 85dB, quimicos, entre outros.'
+    question: 'Quais profissões têm direito à aposentadoria especial?',
+    answer: 'Trabalhadores expostos a agentes nocivos como: mineradores, eletricistas de alta tensão, profissionais de saúde expostos a agentes biológicos, trabalhadores com exposição a ruído acima de 85dB, químicos, entre outros.'
   },
   {
-    question: 'Como comprovar o direito a aposentadoria especial?',
-    answer: 'Atraves do PPP (Perfil Profissiografico Previdenciario) e LTCAT (Laudo Tecnico das Condicoes Ambientais de Trabalho), documentos que a empresa deve fornecer ao trabalhador.'
+    question: 'Como comprovar o direito à aposentadoria especial?',
+    answer: 'Através do PPP (Perfil Profissiográfico Previdenciário) e LTCAT (Laudo Técnico das Condições Ambientais de Trabalho), documentos que a empresa deve fornecer ao trabalhador.'
   },
   {
-    question: 'A reforma da previdencia mudou a aposentadoria especial?',
-    answer: 'Sim. Antes da reforma (ate 12/11/2019), nao havia idade minima. Apos a reforma, passou a exigir idade minima ou pontuacao, alem do tempo de exposicao.'
+    question: 'A reforma da previdência mudou a aposentadoria especial?',
+    answer: 'Sim. Antes da reforma (até 12/11/2019), não havia idade mínima. Após a reforma, passou a exigir idade mínima ou pontuação, além do tempo de exposição.'
   },
   {
-    question: 'Posso continuar trabalhando apos a aposentadoria especial?',
-    answer: 'Nao e permitido continuar trabalhando em atividade especial apos a concessao do beneficio. E possivel trabalhar em atividade comum.'
+    question: 'Posso continuar trabalhando após a aposentadoria especial?',
+    answer: 'Não é permitido continuar trabalhando em atividade especial após a concessão do benefício. É possível trabalhar em atividade comum.'
   }
 ];
 ---
 
 <TablePage
   title="Tabela Aposentadoria Especial INSS 2026"
-  description="Tabela de aposentadoria especial INSS 2026. Confira tempo de contribuicao, idade minima e pontos para atividades de risco."
-  intro="Requisitos para aposentadoria especial por exposicao a agentes nocivos em 2026."
+  description="Tabela de aposentadoria especial INSS 2026. Confira tempo de contribuição, idade mínima e pontos para atividades de risco."
+  intro="Requisitos para aposentadoria especial por exposição a agentes nocivos em 2026."
   tableHeaders={tableHeaders}
   tableData={tableData}
   faqItems={faqItems}
   extraContent={true}
 >
-  <h3>Regra de Transicao (quem ja contribuia antes de 13/11/2019)</h3>
-  <p>Para quem ja estava no mercado de trabalho antes da reforma, vale a regra de pontos:</p>
+  <h3>Regra de Transição (quem já contribuía antes de 13/11/2019)</h3>
+  <p>Para quem já estava no mercado de trabalho antes da reforma, vale a regra de pontos:</p>
   <ul>
     <li><strong>66 pontos</strong> + 15 anos de atividade especial</li>
     <li><strong>76 pontos</strong> + 20 anos de atividade especial</li>
     <li><strong>86 pontos</strong> + 25 anos de atividade especial</li>
   </ul>
-  <p>Pontos = idade + tempo de contribuicao total (especial + comum)</p>
+  <p>Pontos = idade + tempo de contribuição total (especial + comum)</p>
 </TablePage>

@@ -1,56 +1,56 @@
 ---
 import TablePage from '../components/TablePage.astro';
 
-const tableHeaders = ['Tipo de Contribuicao', 'Aliquota', 'Incidencia'];
+const tableHeaders = ['Tipo de Contribuição', 'Alíquota', 'Incidência'];
 
 const tableData = [
-  ['Contribuicao Patronal', '20%', 'Sobre a folha de pagamento'],
+  ['Contribuição Patronal', '20%', 'Sobre a folha de pagamento'],
   ['RAT (Risco Ambiental do Trabalho)', '1% a 3%', 'Conforme grau de risco da atividade'],
   ['Terceiros (Sistema S)', '5,8%', 'SESI, SENAI, SEBRAE, INCRA, etc.'],
   ['GILRAT (com FAP)', '0,5% a 6%', 'RAT x FAP (0,5 a 2,0)'],
-  ['Simples Nacional (Anexo IV)', '20%', 'Empresas de construcao e vigilancia'],
-  ['Produtor Rural PF', '1,2%', 'Sobre receita bruta da comercializacao'],
-  ['Produtor Rural PJ', '1,7%', 'Sobre receita bruta da comercializacao'],
+  ['Simples Nacional (Anexo IV)', '20%', 'Empresas de construção e vigilância'],
+  ['Produtor Rural PF', '1,2%', 'Sobre receita bruta da comercialização'],
+  ['Produtor Rural PJ', '1,7%', 'Sobre receita bruta da comercialização'],
 ];
 
 const faqItems = [
   {
-    question: 'O que e a contribuicao patronal de 20%?',
-    answer: 'E a contribuicao obrigatoria das empresas sobre o total da folha de pagamento dos empregados. Esse valor e pago integralmente pelo empregador, sem desconto do salario do funcionario.'
+    question: 'O que é a contribuição patronal de 20%?',
+    answer: 'É a contribuição obrigatória das empresas sobre o total da folha de pagamento dos empregados. Esse valor é pago integralmente pelo empregador, sem desconto do salário do funcionário.'
   },
   {
-    question: 'O que e o RAT e como e calculado?',
-    answer: 'RAT (Risco Ambiental do Trabalho) e uma contribuicao que varia de 1% a 3% conforme o grau de risco da atividade economica: 1% para risco leve, 2% para medio e 3% para grave.'
+    question: 'O que é o RAT e como é calculado?',
+    answer: 'RAT (Risco Ambiental do Trabalho) é uma contribuição que varia de 1% a 3% conforme o grau de risco da atividade econômica: 1% para risco leve, 2% para médio e 3% para grave.'
   },
   {
-    question: 'O que e o FAP?',
-    answer: 'FAP (Fator Acidentario de Prevencao) e um multiplicador de 0,5 a 2,0 aplicado sobre o RAT. Empresas com menos acidentes pagam menos (FAP menor), incentivando a prevencao.'
+    question: 'O que é o FAP?',
+    answer: 'FAP (Fator Acidentário de Prevenção) é um multiplicador de 0,5 a 2,0 aplicado sobre o RAT. Empresas com menos acidentes pagam menos (FAP menor), incentivando a prevenção.'
   },
   {
     question: 'Empresas do Simples Nacional pagam INSS patronal?',
-    answer: 'A maioria das empresas do Simples tem a contribuicao patronal incluida no DAS. Excecao: empresas do Anexo IV (construcao, vigilancia) pagam os 20% separadamente.'
+    answer: 'A maioria das empresas do Simples tem a contribuição patronal incluída no DAS. Exceção: empresas do Anexo IV (construção, vigilância) pagam os 20% separadamente.'
   },
   {
-    question: 'O que sao as contribuicoes para terceiros?',
-    answer: 'Sao contribuicoes destinadas a entidades como SESI, SENAI, SESC, SENAC, SEBRAE, INCRA e salario-educacao. O percentual varia conforme o setor de atuacao da empresa.'
+    question: 'O que são as contribuições para terceiros?',
+    answer: 'São contribuições destinadas a entidades como SESI, SENAI, SESC, SENAC, SEBRAE, INCRA e salário-educação. O percentual varia conforme o setor de atuação da empresa.'
   }
 ];
 ---
 
 <TablePage
-  title="Tabela INSS Empresas 2026 - Contribuicao Patronal"
-  description="Tabela de contribuicao INSS 2026 para empresas. Confira aliquotas patronais, RAT, FAP, terceiros e obrigacoes do empregador."
-  intro="Aliquotas e obrigacoes previdenciarias das empresas para com o INSS em 2026."
+  title="Tabela INSS Empresas 2026 - Contribuição Patronal"
+  description="Tabela de contribuição INSS 2026 para empresas. Confira alíquotas patronais, RAT, FAP, terceiros e obrigações do empregador."
+  intro="Alíquotas e obrigações previdenciárias das empresas para com o INSS em 2026."
   tableHeaders={tableHeaders}
   tableData={tableData}
   faqItems={faqItems}
   extraContent={true}
 >
-  <h3>Resumo da Carga Previdenciaria Total</h3>
-  <p>Uma empresa tipica paga aproximadamente <strong>27,8% a 31,8%</strong> sobre a folha de pagamento:</p>
+  <h3>Resumo da Carga Previdenciária Total</h3>
+  <p>Uma empresa típica paga aproximadamente <strong>27,8% a 31,8%</strong> sobre a folha de pagamento:</p>
   <ul>
-    <li>20% de contribuicao patronal</li>
+    <li>20% de contribuição patronal</li>
     <li>1% a 3% de RAT (ajustado pelo FAP)</li>
-    <li>5,8% de terceiros (media)</li>
+    <li>5,8% de terceiros (média)</li>
   </ul>
 </TablePage>

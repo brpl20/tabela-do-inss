@@ -2,7 +2,7 @@
   "name": "tabela-do-inss-2026",
   "type": "module",
   "version": "1.0.0",
-  "description": "Tabela do INSS 2026 - Informacoes sobre a Previdencia Social Brasileira",
+  "description": "Tabela do INSS 2026 - Informações sobre a Previdência Social Brasileira",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
