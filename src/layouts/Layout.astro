@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 
 const {
   title = 'Tabela do INSS 2026',
@@ -61,14 +62,24 @@ const ogImage = image?.startsWith('http') ? image : new URL(image, siteUrl).toSt
     <!-- Fonts - minimal for performance -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WDFK38WEFT"></script>
-    <script>
+    <!-- Google tag (gtag.js) - com consent mode -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-WDFK38WEFT"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-WDFK38WEFT');
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+      });
+
+      gtag('js', new Date());
+      gtag('config', 'G-WDFK38WEFT', { anonymize_ip: true });
+
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+      }
     </script>
   </head>
   <body>
@@ -77,6 +88,7 @@ const ogImage = image?.startsWith('http') ? image : new URL(image, siteUrl).toSt
       <slot />
     </main>
     <Footer />
+    <CookieBanner />
   </body>
 </html>
 
