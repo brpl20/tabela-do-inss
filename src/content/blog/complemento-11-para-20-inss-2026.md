@@ -55,7 +55,7 @@ Se você contribuiu pelo **Plano Simplificado (11%)** e pretende **validar tempo
 
 ## Links úteis
 
-- [Tabela de Códigos do INSS (GPS) 2026](/tabela-codigos-do-inss)
+- [Tabela de Códigos do INSS (GPS) 2026](/tabela-codigos-do-inss/)
 - Meu INSS (geração de guias e consultas)
 
 > Este artigo é informativo. Regras e códigos podem ser atualizados por atos oficiais. Em caso de dúvida, utilize fontes do GOV.BR/INSS ou assessoria especializada.

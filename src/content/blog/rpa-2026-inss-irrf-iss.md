@@ -19,4 +19,4 @@ O **RPA** é usado quando **pessoa física** presta serviço sem emitir NF. A **
 
 - Emita RPA com campos de **bruto**, **INSS**, **IRRF**, **ISS** e **líquido**.
 - Guarde comprovantes de recolhimento.
-- Para contribuição própria (CI 20%), veja [/tabela-codigos-do-inss](/tabela-codigos-do-inss).
+- Para contribuição própria (CI 20%), veja [/tabela-codigos-do-inss](/tabela-codigos-do-inss/).

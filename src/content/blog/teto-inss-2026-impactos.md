@@ -16,4 +16,4 @@ O **teto do INSS** limita a base de cálculo e o valor dos benefícios. Enquanto
 - **Pró-labore/CI**: contribuintes individuais no **20%** limitam a base ao teto.
 - **Benefícios**: valores calculados respeitam o limite do teto vigente.
 
-> Atualizaremos este artigo quando o teto 2026 for oficializado. Veja também [/tabela-codigos-do-inss](/tabela-codigos-do-inss).
+> Atualizaremos este artigo quando o teto 2026 for oficializado. Veja também [/tabela-codigos-do-inss](/tabela-codigos-do-inss/).

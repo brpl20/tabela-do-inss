@@ -21,4 +21,4 @@ O **Facultativo Baixa Renda (1929)** permite contribuir com **5%** do salário m
 - Manter atividade remunerada e seguir recolhendo 1929.
 - Deixar o **CadÚnico desatualizado**.
 
-> Mais códigos em [/tabela-codigos-do-inss](/tabela-codigos-do-inss).
+> Mais códigos em [/tabela-codigos-do-inss](/tabela-codigos-do-inss/).

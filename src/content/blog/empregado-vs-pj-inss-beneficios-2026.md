@@ -19,4 +19,4 @@ tags: ["INSS", "CLT", "PJ", "benefícios", "2026"]
 
 - Avalie custo total (tributos + previdência + benefícios).
 - Para PJ, escolha o **plano** (11% x 20%) consciente dos **direitos**.
-- Consulte [/tabela-codigos-do-inss](/tabela-codigos-do-inss) para o código correto.
+- Consulte [/tabela-codigos-do-inss](/tabela-codigos-do-inss/) para o código correto.

@@ -31,5 +31,4 @@ Organize seus recolhimentos com o **calendário INSS 2026**. O vencimento padrã
 
 - Configure lembretes mensais (dia 10–13) para gerar a **GPS**.
 - Para **MEI**, acompanhe o **DAS** no PGMEI.
-- Veja os **códigos de pagamento** em [/tabela-codigos-do-inss](/tabela-codigos-do-inss).
-
+- Veja os **códigos de pagamento** em [/tabela-codigos-do-inss](/tabela-codigos-do-inss/).

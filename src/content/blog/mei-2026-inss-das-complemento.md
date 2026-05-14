@@ -19,4 +19,4 @@ Em 2026, o **INSS do MEI** corresponde a **5% do salário mínimo** dentro do **
 
 - Pague o **DAS** até o vencimento; evite multa/juros.
 - Revise periodicamente se **faixa de benefício** desejada exige **complemento**.
-- Veja a tabela de **códigos do INSS** em [/tabela-codigos-do-inss](/tabela-codigos-do-inss).
+- Veja a tabela de **códigos do INSS** em [/tabela-codigos-do-inss](/tabela-codigos-do-inss/).

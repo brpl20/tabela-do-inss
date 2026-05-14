@@ -24,4 +24,4 @@ O cálculo do INSS para empregados segue tabela **progressiva**. A **parcela a d
 - Pela dedução: **12%** de 3.000,00 = 360,00 − **106,59** = **R$ 253,41**.
 - Por faixas: soma das três primeiras faixas = **R$ 253,41**.
 
-> Dica: confira semanalmente nosso [/blog](/blog) e a página [/tabela-codigos-do-inss](/tabela-codigos-do-inss) para códigos GPS.
+> Dica: confira semanalmente nosso [/blog](/blog/) e a página [/tabela-codigos-do-inss](/tabela-codigos-do-inss/) para códigos GPS.

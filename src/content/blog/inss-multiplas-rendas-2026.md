@@ -16,4 +16,4 @@ Quem possui **mais de uma fonte de renda** deve **somar as bases** de contribui�
 - Ajuste recolhimentos seguintes (RPA/CI) para **evitar contribuição acima do limite**.
 - Guarde comprovantes e relatório de **consolidação da base**.
 
-> Consulte códigos em [/tabela-codigos-do-inss](/tabela-codigos-do-inss) e oriente-se com o contador ao consolidar bases.
+> Consulte códigos em [/tabela-codigos-do-inss](/tabela-codigos-do-inss/) e oriente-se com o contador ao consolidar bases.
