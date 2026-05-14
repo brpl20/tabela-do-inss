@@ -1,5 +1,5 @@
 ---
-title: "Aposentadoria do Professor: Redutores Que Podem Ser Cumulados"
+title: "Professor: Regras INSS"
 description: "Professores têm direito a se aposentar 5 anos antes. Decisões recentes reconhecem a cumulação de redutores para diminuir ainda mais o tempo necessário."
 pubDate: 2026-03-24T10:00:00.000Z
 tags: ["aposentadoria", "professor", "redutores", "INSS"]
@@ -62,7 +62,7 @@ Ana é professora municipal desde 1998. Ela tem 54 anos e 28 anos de contribuiç
 ## Perguntas Frequentes
 
 **Essa regra vale para professor de faculdade?**
-Nao. O redutor de 5 anos vale apenas para professores da educação infantil, ensino fundamental e ensino médio. Professores universitários seguem as regras gerais.
+Não. O redutor de 5 anos vale apenas para professores da educação infantil, ensino fundamental e ensino médio. Professores universitários seguem as regras gerais.
 
 **Professor de escola particular tem direito?**
 Sim, o redutor de 5 anos vale para todos os professores (público e privado). Mas a cumulação com a EC 47/05 é específica para servidores públicos que entraram antes de 2003.

@@ -1,5 +1,5 @@
 ---
-title: "Contagem Recíproca: Posso Somar Tempo do Serviço Público com o INSS?"
+title: "Somar tempo público + INSS"
 description: "Entenda como funciona a contagem recíproca para somar tempo de serviço público com INSS e se aposentar mais rápido."
 pubDate: 2026-03-31T10:00:00.000Z
 tags: ["contagem recíproca", "RPPS", "RGPS", "INSS", "serviço público"]
@@ -16,8 +16,8 @@ published: true
 |----------|-------------|
 | Tempo de CLT + tempo de servidor público | Sim |
 | Tempo de autônomo + tempo de servidor público | Sim |
-| Tempo já usado em aposentadoria do serviço público | Nao |
-| Tempo já usado em aposentadoria do INSS | Nao |
+| Tempo já usado em aposentadoria do serviço público | Não |
+| Tempo já usado em aposentadoria do INSS | Não |
 
 ## O Que é Contagem Recíproca?
 
@@ -34,7 +34,7 @@ Isso funciona nos dois sentidos:
 Para somar os tempos, você precisa de uma Certidão de Tempo de Contribuição (CTC). Ela funciona como um "comprovante" do tempo que você quer transferir de um sistema para o outro.
 
 - Se quer levar tempo do INSS para o serviço público: pede a CTC no INSS
-- Se quer levar tempo do serviço público para o INSS: pede a CTC no orgão público onde trabalhou
+- Se quer levar tempo do serviço público para o INSS: pede a CTC no órgão público onde trabalhou
 
 Importante: depois que a CTC é emitida, aquele tempo sai do sistema de origem. Não pode mais ser usado lá.
 

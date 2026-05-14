@@ -42,7 +42,7 @@ function formatDate(date) {
                   </time>
                 </div>
                 <h2>
-                  <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                  <a href={`/blog/${post.id}/`}>{post.data.title}</a>
                 </h2>
                 <p>{post.data.description}</p>
                 {post.data.tags && post.data.tags.length > 0 && (
@@ -52,7 +52,7 @@ function formatDate(date) {
                     ))}
                   </div>
                 )}
-                <a href={`/blog/${post.id}`} class="read-more">Ler mais →</a>
+                <a href={`/blog/${post.id}/`} class="read-more">Ler mais →</a>
               </div>
             </article>
           ))}

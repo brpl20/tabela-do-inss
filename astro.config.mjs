@@ -3,9 +3,11 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://tabeladoinss.com.br',
+  trailingSlash: 'always',
   integrations: [sitemap()],
   build: {
-    inlineStylesheets: 'auto'
+    inlineStylesheets: 'auto',
+    format: 'directory'
   },
   compressHTML: true,
   prefetch: {

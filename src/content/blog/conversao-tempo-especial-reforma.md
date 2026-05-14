@@ -1,5 +1,5 @@
 ---
-title: "Conversão de Tempo Especial: O Que Mudou Depois da Reforma"
+title: "Tempo especial: Mudanças"
 description: "Entenda as regras de conversão de tempo especial em comum antes e depois da Reforma da Previdência de 2019."
 pubDate: 2026-04-07T10:00:00.000Z
 tags: ["tempo especial", "conversão", "reforma da previdência", "INSS"]

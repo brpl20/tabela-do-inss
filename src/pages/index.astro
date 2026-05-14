@@ -68,6 +68,11 @@ const tabelaINSS = [
           <h3>Teto do INSS</h3>
           <p>O teto máximo de contribuição para 2026 é de R$ 8.475,55, com contribuição máxima de R$ 951,63.</p>
         </article>
+
+        <article class="feature-card">
+          <h3>Pessoa com Deficiência</h3>
+          <p>Quem tem deficiência pode se aposentar com menos tempo de contribuição. Veja a <a href="/tabela-inss-deficientes/">tabela de aposentadoria PCD</a> com os requisitos por grau.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -76,7 +81,7 @@ const tabelaINSS = [
     <div class="container">
       <h2>Fique Atualizado</h2>
       <p>Acompanhe nosso blog para novidades sobre a Previdência Social e mudanças na legislação.</p>
-      <a href="/blog" class="cta-button">Ver Blog</a>
+      <a href="/blog/" class="cta-button">Ver Blog</a>
     </div>
   </section>
 </Layout>
@@ -207,6 +212,16 @@ const tabelaINSS = [
   .feature-card p {
     margin: 0;
     color: #555;
+  }
+
+  .feature-card p a {
+    color: #1a5f2a;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .feature-card p a:hover {
+    color: #2d8a3e;
   }
 
   .cta-section {

@@ -1,5 +1,5 @@
 ---
-title: "Quando Começo a Receber Minha Aposentadoria Ganha na Justiça?"
+title: "Receber aposentadoria judicial"
 description: "Se o INSS negou sua aposentadoria e você ganhou na Justiça, saiba quando começam os efeitos financeiros e o pagamento dos atrasados."
 pubDate: 2026-04-14T10:00:00.000Z
 tags: ["aposentadoria", "efeitos financeiros", "termo inicial", "DER", "INSS"]
@@ -49,7 +49,7 @@ Maria pediu aposentadoria por idade em fevereiro de 2022, mas o INSS negou porqu
 - Meses atrasados (fev/2022 a mar/2026): 49 meses
 - Total aproximado de atrasados: R$ 122.500
 
-Se o INSS conseguisse empurrar o termo inicial para a data da sentença, Maria perderia todos esses atrasados. Por isso essa questão é tao importante.
+Se o INSS conseguisse empurrar o termo inicial para a data da sentença, Maria perderia todos esses atrasados. Por isso essa questão é tão importante.
 
 ## Perguntas Frequentes
 

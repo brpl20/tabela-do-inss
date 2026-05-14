@@ -1,5 +1,5 @@
 ---
-title: "Aposentadoria da Pessoa com Deficiência: Requisitos e Como Pedir"
+title: "Aposentadoria PcD: Guia"
 description: "Pessoas com deficiência podem se aposentar mais cedo pelo INSS. Veja os requisitos por grau de deficiência conforme a LC 142/2013."
 pubDate: 2026-03-17T10:00:00.000Z
 tags: ["aposentadoria", "PcD", "deficiência", "LC 142/2013", "INSS"]
@@ -9,6 +9,8 @@ published: true
 # Aposentadoria da Pessoa com Deficiência: Requisitos e Como Pedir
 
 **Em resumo:** Pessoas com deficiência podem se aposentar mais cedo pelo INSS. O tempo necessário depende do grau da deficiência (leve, moderada ou grave). A Lei Complementar 142/2013 garante esse direito.
+
+Para uma visão completa dos requisitos por grau, consulte também a [tabela INSS para pessoas com deficiência](/tabela-inss-deficientes/) com os tempos de contribuição atualizados para 2026.
 
 ## Tabela de Requisitos
 
@@ -78,6 +80,8 @@ A LC 142/2013 continua valendo. A Reforma da Previdência (EC 103/2019) não alt
 - A avaliação é feita por perícia do INSS
 - Se a deficiência mudou de grau, o cálculo é proporcional
 - Reafirmação da DER permite reconhecer o direito mesmo durante o processo judicial
+
+Veja também a [tabela completa de aposentadoria da pessoa com deficiência](/tabela-inss-deficientes/) com todos os requisitos por grau e modalidade.
 
 ---
 
