@@ -59,8 +59,17 @@ const ogImage = image?.startsWith('http') ? image : new URL(image, siteUrl).toSt
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Fonts - minimal for performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Fonts - carregadas sem bloquear a primeira pintura.
+         O body ja cai em system-ui enquanto a Inter nao chega. -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
 
     <!-- Google tag (gtag.js) - com consent mode -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-WDFK38WEFT"></script>
