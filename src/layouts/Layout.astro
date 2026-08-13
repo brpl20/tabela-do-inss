@@ -90,12 +90,21 @@ const ogImage = image?.startsWith('http') ? image : new URL(image, siteUrl).toSt
       document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
     </script>
 
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wqguwujtv7");
+    <!-- Microsoft Clarity - so carrega apos consentimento explicito (LGPD) -->
+    <script is:inline>
+      window.loadClarity = function () {
+        if (window.__clarityLoaded) return;
+        window.__clarityLoaded = true;
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wqguwujtv7");
+      };
+
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        window.loadClarity();
+      }
     </script>
   </head>
   <body>
