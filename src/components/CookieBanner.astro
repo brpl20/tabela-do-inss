@@ -50,6 +50,11 @@
         'analytics_storage': 'granted'
       });
     }
+
+    // Clarity so e injetado aqui - ver Layout.astro
+    if (typeof window.loadClarity === 'function') {
+      window.loadClarity();
+    }
   }
 
   function disableAnalytics() {
@@ -60,7 +65,8 @@
     }
 
     document.cookie.split(';').forEach(function(c) {
-      if (c.trim().startsWith('_ga')) {
+      var name = c.trim().split('=')[0];
+      if (name.startsWith('_ga') || name.startsWith('_clck') || name.startsWith('_clsk')) {
         document.cookie = c.trim().split('=')[0] + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.' + location.hostname;
         document.cookie = c.trim().split('=')[0] + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
       }
