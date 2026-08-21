@@ -39,7 +39,9 @@ Os posts do blog são agendados automaticamente:
 
 1. Crie um arquivo em `src/content/blog/` com frontmatter
 2. Defina `pubDate` com data futura (UTC)
-3. O GitHub Actions publica diariamente às 07:00 (GMT-3)
+3. Um rebuild agendado (GitHub Actions → Deploy Hook da Cloudflare) roda às
+   06:00 e 08:00 GMT-3 e coloca no ar os posts cuja data já chegou
+   (ver [.github/AGENDAMENTO.md](./.github/AGENDAMENTO.md))
 
 Detalhes completos em [AGENTS.md](./AGENTS.md).
 
@@ -48,7 +50,7 @@ Detalhes completos em [AGENTS.md](./AGENTS.md).
 O site é implantado automaticamente via Cloudflare Pages:
 
 - **Push para master**: Deploy automático
-- **Build diário**: 07:00 GMT-3 (para posts agendados)
+- **Rebuild diário**: 06:00 e 08:00 GMT-3 (para posts agendados)
 - **Custom domain**: tabeladoinss.com.br
 
 ## 🖼️ Imagens e CDN

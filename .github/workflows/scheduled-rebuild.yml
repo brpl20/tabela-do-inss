@@ -1,0 +1,65 @@
+# Rebuild diário — faz os posts agendados entrarem no ar sozinhos.
+#
+# Por que este workflow existe:
+#   src/pages/blog/index.astro e src/pages/blog/[...slug].astro filtram
+#   `pubDate <= now`. Esse `now` é o instante do BUILD, não o instante da visita.
+#   Como o site é estático e o deploy da Cloudflare Pages só dispara em push,
+#   um post com pubDate futura NUNCA aparecia sozinho: ficava esperando alguém
+#   fazer um commit qualquer. Este cron dispara um deploy novo todo dia, e é o
+#   build novo que "libera" os posts cuja data já chegou.
+#
+# Mecanismo: Deploy Hook da Cloudflare Pages (POST numa URL secreta).
+#   A Cloudflare Pages não tem build agendado nativo; o hook é a forma oficial
+#   de disparar um deploy de fora. O deploy em si continua sendo o mesmo da
+#   integração git — este arquivo não muda nada de como o site é construído.
+#
+# PRÉ-REQUISITO MANUAL (uma vez, no painel — ver .github/AGENDAMENTO.md):
+#   1) Cloudflare Dashboard > Workers & Pages > projeto do tabeladoinss >
+#      Settings > Builds & deployments > Deploy hooks > Add deploy hook
+#      (branch: master). Copie a URL gerada.
+#   2) GitHub > repo > Settings > Secrets and variables > Actions > New secret
+#      name: CLOUDFLARE_DEPLOY_HOOK   value: a URL do passo 1
+#   Enquanto o secret não existir, o job falha com mensagem explícita (de
+#   propósito: falha silenciosa aqui significaria post agendado que nunca sai).
+
+name: Rebuild agendado
+
+on:
+  schedule:
+    # 09:00 UTC = 06:00 BRT — janela pedida para o post do dia.
+    - cron: "0 9 * * *"
+    # 11:00 UTC = 08:00 BRT — rede de segurança: os posts do repo usam
+    # `pubDate: ...T10:00:00.000Z`, que ainda é futuro às 09:00 UTC.
+    # Sem esta segunda passada, um post datado 10:00Z só sairia no dia seguinte.
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: scheduled-rebuild
+  cancel-in-progress: false
+
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disparar deploy na Cloudflare Pages
+        env:
+          DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+        run: |
+          set -euo pipefail
+          if [ -z "${DEPLOY_HOOK}" ]; then
+            echo "::error::Secret CLOUDFLARE_DEPLOY_HOOK não configurado."
+            echo "Crie o deploy hook na Cloudflare Pages e salve a URL no secret."
+            echo "Passo a passo: .github/AGENDAMENTO.md"
+            exit 1
+          fi
+          status=$(curl -sS -o /tmp/hook.out -w '%{http_code}' -X POST "${DEPLOY_HOOK}")
+          echo "HTTP ${status}"
+          cat /tmp/hook.out || true
+          echo
+          case "${status}" in
+            2*) echo "Deploy disparado." ;;
+            *)  echo "::error::Deploy hook respondeu ${status}."; exit 1 ;;
+          esac

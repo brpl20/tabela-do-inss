@@ -2,11 +2,12 @@
 
 Internal guidelines for maintaining and extending the Tabela do INSS 2026 site.
 
-This repo is an Astro static site deployed via GitHub Pages. Content is file‑based (Markdown) and route generation is static.
+This repo is an Astro static site deployed via Cloudflare Pages (git integration on `master`). Content is file‑based (Markdown) and route generation is static.
 
 ## Stack & Structure
 - Static site: Astro 5
-- Deploy: GitHub Pages via Actions (see `.github/workflows/publish.yml`)
+- Deploy: Cloudflare Pages, integração git — todo push em `master` gera um deploy
+- Rebuild agendado: `.github/workflows/scheduled-rebuild.yml` (ver `.github/AGENDAMENTO.md`)
 - Content: `src/content/blog/*.md` (collection configured in `src/content.config.js`)
 - Pages: `src/pages/*.astro`
 - Layouts/Components: `src/layouts`, `src/components`
@@ -16,13 +17,15 @@ This repo is an Astro static site deployed via GitHub Pages. Content is file‑b
   - Implemented in:
     - `src/pages/blog/index.astro` (filters future posts)
     - `src/pages/blog/[...slug].astro` (does not create static routes for future posts)
-- Cron build: daily at 07:00 (GMT‑3) — i.e., 10:00 UTC.
-  - Config: `.github/workflows/publish.yml` → `schedule: '0 10 * * *'`
-  - Also triggers on every push and supports manual dispatch.
+- Cron build: 09:00 UTC (06:00 GMT‑3) e 11:00 UTC (08:00 GMT‑3).
+  - Config: `.github/workflows/scheduled-rebuild.yml` → `schedule: '0 9 * * *'` e `'0 11 * * *'`
+  - O workflow dispara um Deploy Hook da Cloudflare Pages; requer o secret
+    `CLOUDFLARE_DEPLOY_HOOK` (passo manual em `.github/AGENDAMENTO.md`).
+  - O deploy também roda em todo push e aceita disparo manual (workflow_dispatch).
 - How to schedule a post:
   1) Create a new file in `src/content/blog/` with frontmatter including `title`, `description`, `pubDate`, optional `updatedDate`, `tags`, and (optionally) `image` and `imageAlt`.
   2) Set `pubDate` to a future date (UTC) you want the article to go live. It will appear after the next scheduled build at 10:00 UTC (07:00 GMT‑3).
-  3) If you include a time in `pubDate`, ensure it is ≤ the build time (10:00 UTC) for same‑day publish.
+  3) If you include a time in `pubDate`, ensure it is ≤ 11:00 UTC for same‑day publish (convenção do repo: `T10:00:00.000Z`).
 - Weekly cadence:
   - We publish one post per week. To queue content, set `pubDate` to weekly intervals (prefer morning UTC to match cron).
 
@@ -35,7 +38,7 @@ This repo is an Astro static site deployed via GitHub Pages. Content is file‑b
   - Add in frontmatter: `image: '/blog/og/<slug>.jpg'` and optional `imageAlt`.
   - Prefer absolute URLs if hosting on CDN.
 - Hosting options:
-  - Local: put assets in `public/` (served by GitHub Pages’ CDN).
+  - Local: put assets in `public/` (served by Cloudflare’s CDN).
   - CDN (recommended for scale): Cloudflare R2 with Custom Domain (e.g., `https://img.tabeladoinss.com.br`).
     - Folders: `og/` for site‑wide OGs, `blog/og/` for post thumbnails.
     - Headers per object: `Content-Type: image/jpeg` (PNG/SVG if needed) and `Cache-Control: public, max-age=31536000, immutable`.
@@ -50,10 +53,10 @@ This repo is an Astro static site deployed via GitHub Pages. Content is file‑b
   - Twitter: `summary_large_image`
 - `image`/`imageAlt` can be provided per page/post; otherwise, defaults are used.
 
-## GitHub Pages & Limits
+## Cloudflare Pages & Limits
 - Per file push limit (Git): 100 MB
-- Site output size guideline: ≤ ~1 GB
-- Builds per hour (Pages): up to ~10
+- Arquivo individual servido pela Pages: ≤ 25 MB
+- Builds: cota mensal do plano (o rebuild agendado consome ~60/mês)
 - Do not rely on Git LFS for images to be served by Pages.
 
 ## Authoring a New Post (checklist)
@@ -67,8 +70,10 @@ This repo is an Astro static site deployed via GitHub Pages. Content is file‑b
 6) On schedule, the daily cron will publish when `pubDate <= now`.
 
 ## Adjusting the Cron
-- Open `.github/workflows/publish.yml` and update the `cron` line.
+- Open `.github/workflows/scheduled-rebuild.yml` and update the `cron` lines.
 - Example: daily 07:00 GMT‑3 is `0 10 * * *` (10:00 UTC).
+- Lembre: o cron não constrói nada por si — ele chama o Deploy Hook da
+  Cloudflare. Se o secret `CLOUDFLARE_DEPLOY_HOOK` sumir, o agendamento para.
 
 ## Optional: CDN Variable
 - If/when using a dedicated CDN domain for images, consider introducing an `ASSET_BASE_URL` in the code to build absolute OG URLs and fall back to local `public/` when unset.
