@@ -8,18 +8,21 @@
 #   fazer um commit qualquer. Este cron dispara um deploy novo todo dia, e é o
 #   build novo que "libera" os posts cuja data já chegou.
 #
-# Mecanismo: Deploy Hook da Cloudflare Pages (POST numa URL secreta).
-#   A Cloudflare Pages não tem build agendado nativo; o hook é a forma oficial
-#   de disparar um deploy de fora. O deploy em si continua sendo o mesmo da
-#   integração git — este arquivo não muda nada de como o site é construído.
+#   Até 01/2026 havia um cron no publish.yml do GitHub Pages que fazia esse
+#   papel sem que ninguém percebesse. Ele saiu na migração para a Cloudflare e
+#   o filtro `pubDate <= now` ficou órfão desde então.
 #
-# PRÉ-REQUISITO MANUAL (uma vez, no painel — ver .github/AGENDAMENTO.md):
-#   1) Cloudflare Dashboard > Workers & Pages > projeto do tabeladoinss >
-#      Settings > Builds & deployments > Deploy hooks > Add deploy hook
-#      (branch: master). Copie a URL gerada.
-#   2) GitHub > repo > Settings > Secrets and variables > Actions > New secret
-#      name: CLOUDFLARE_DEPLOY_HOOK   value: a URL do passo 1
-#   Enquanto o secret não existir, o job falha com mensagem explícita (de
+# Mecanismo: API da Cloudflare (POST /pages/projects/<projeto>/deployments).
+#   Escolhida em vez do Deploy Hook porque o hook exige criação manual no
+#   painel, enquanto o API token já existe e é reaproveitável. O deploy em si
+#   continua sendo o mesmo da integração git — este arquivo não muda nada de
+#   como o site é construído.
+#
+# PRÉ-REQUISITO (uma vez): dois secrets no GitHub
+#   Settings > Secrets and variables > Actions > New repository secret
+#     CLOUDFLARE_API_TOKEN    token com permissão Cloudflare Pages: Edit
+#     CLOUDFLARE_ACCOUNT_ID   bf37a8c9cc1728597f782f507eeff866
+#   Enquanto os secrets não existirem, o job falha com mensagem explícita (de
 #   propósito: falha silenciosa aqui significaria post agendado que nunca sai).
 
 name: Rebuild agendado
@@ -46,20 +49,28 @@ jobs:
     steps:
       - name: Disparar deploy na Cloudflare Pages
         env:
-          DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_PROJECT: tabela-do-inss
+          CF_BRANCH: master
         run: |
           set -euo pipefail
-          if [ -z "${DEPLOY_HOOK}" ]; then
-            echo "::error::Secret CLOUDFLARE_DEPLOY_HOOK não configurado."
-            echo "Crie o deploy hook na Cloudflare Pages e salve a URL no secret."
-            echo "Passo a passo: .github/AGENDAMENTO.md"
+          if [ -z "${CF_TOKEN}" ] || [ -z "${CF_ACCOUNT}" ]; then
+            echo "::error::Secrets CLOUDFLARE_API_TOKEN e/ou CLOUDFLARE_ACCOUNT_ID ausentes."
+            echo "Sem eles o post agendado nunca entra no ar. Ver .github/AGENDAMENTO.md"
             exit 1
           fi
-          status=$(curl -sS -o /tmp/hook.out -w '%{http_code}' -X POST "${DEPLOY_HOOK}")
+          status=$(curl -sS -o /tmp/cf.json -w '%{http_code}' \
+            -X POST "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT}/pages/projects/${CF_PROJECT}/deployments" \
+            -H "Authorization: Bearer ${CF_TOKEN}" \
+            -F "branch=${CF_BRANCH}")
           echo "HTTP ${status}"
-          cat /tmp/hook.out || true
-          echo
-          case "${status}" in
-            2*) echo "Deploy disparado." ;;
-            *)  echo "::error::Deploy hook respondeu ${status}."; exit 1 ;;
-          esac
+          # o corpo traz id e url do deployment; não expõe segredo
+          python3 -c "
+          import json,sys
+          d=json.load(open('/tmp/cf.json'))
+          if not d.get('success'):
+              print('::error::Cloudflare recusou:', json.dumps(d.get('errors'))[:300]); sys.exit(1)
+          r=d['result']
+          print('Deploy', r['id'], '->', r.get('url'))
+          "
