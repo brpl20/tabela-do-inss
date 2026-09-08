@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tabelas = [
+  { href: '/tabela-contribuinte-individual/', titulo: 'Contribuinte individual', desc: 'Aliquotas e valores do carne para autonomos.' },
+  { href: '/tabela-siglas-do-inss/', titulo: 'Siglas do INSS', desc: 'O que significa cada sigla usada pelo INSS.' },
+  { href: '/tabela-codigos-do-inss/', titulo: 'Codigos do INSS', desc: 'Codigos de recolhimento e de especie de beneficio.' },
+  { href: '/tabela-aposentadoria-especial/', titulo: 'Aposentadoria especial', desc: 'Profissoes, agentes nocivos e tempo exigido.' },
+  { href: '/tabela-regras-de-transicao/', titulo: 'Regras de transicao', desc: 'As regras da EC 103 e quem se enquadra em cada uma.' },
+  { href: '/tabela-conversao-tempo-especial/', titulo: 'Conversao de tempo especial', desc: 'Fatores de conversao de tempo especial em comum.' }
+];
+---
+
+<Layout
+  title="Pagina nao encontrada"
+  description="A pagina que voce procurou nao existe ou foi movida. Veja as tabelas do INSS disponiveis."
+  robots="noindex, follow"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="code">Erro 404</p>
+      <h1>Esta pagina nao existe</h1>
+      <p class="hero-subtitle">O endereco pode ter sido digitado errado ou a pagina pode ter mudado de lugar. As tabelas abaixo continuam no ar.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="content-card">
+        <h2>Tabelas mais procuradas</h2>
+        <ul class="tabela-list">
+          {tabelas.map((t) => (
+            <li>
+              <a href={t.href}>{t.titulo}</a>
+              <span>{t.desc}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="voltar">Ou volte para a <a href="/">pagina inicial</a>.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #1a5f2a 0%, #2d8a3e 100%);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .code {
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin: 0 0 0.5rem;
+    color: white;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+    color: white;
+  }
+
+  .content-section {
+    padding: 2rem 0 4rem;
+  }
+
+  .content-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: #1a5f2a;
+    font-size: 1.3rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .tabela-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tabela-list li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .tabela-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tabela-list a {
+    display: block;
+    color: #1a5f2a;
+    font-weight: 600;
+    text-decoration: underline;
+    margin-bottom: 0.2rem;
+  }
+
+  .tabela-list a:hover {
+    color: #0d4a1e;
+  }
+
+  .tabela-list span {
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .voltar {
+    margin: 1.5rem 0 0;
+    color: #444;
+  }
+
+  .voltar a {
+    color: #1a5f2a;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .content-card {
+      padding: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+    }
+  }
+</style>
