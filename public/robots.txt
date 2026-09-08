@@ -1,4 +1,11 @@
-User-agent: *
-Allow: /
+# O bloco "Cloudflare Managed content" (Content-Signal + bloqueio de crawlers de
+# IA) e injetado pela Cloudflare no topo deste arquivo em tempo de resposta, e ja
+# traz um grupo "User-agent: *" com "Allow: /". Este arquivo NAO deve declarar um
+# segundo grupo "User-agent: *": dois grupos iguais sao ambiguos por spec (o
+# crawler ou funde ou usa so o primeiro). Ver
+# content-workspace/issues/2026-08-28-tabeladoinss-www-sem-redirect.md
+#
+# Se o Managed content da Cloudflare for desligado, este arquivo fica so com o
+# Sitemap — o que continua valido e significa "tudo liberado" por omissao.
 
 Sitemap: https://tabeladoinss.com.br/sitemap-index.xml
