@@ -1,0 +1,5 @@
+# O sitemap real e gerado pelo @astrojs/sitemap em /sitemap-index.xml. O caminho
+# convencional /sitemap.xml e o primeiro que um robo tenta, e hoje ele cai no
+# fallback do site: devolve a home com HTTP 200 em vez do XML.
+/sitemap.xml        /sitemap-index.xml    301
+/sitemap_index.xml  /sitemap-index.xml    301
