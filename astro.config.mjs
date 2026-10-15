@@ -16,6 +16,7 @@ function campoDoFrontmatter(frontmatter, nome) {
 function lastmodPorUrl() {
   const dir = fileURLToPath(new URL('./src/content/blog', import.meta.url));
   const mapa = new Map();
+  const agora = new Date();
 
   for (const arquivo of readdirSync(dir)) {
     if (!arquivo.endsWith('.md')) continue;
@@ -23,12 +24,16 @@ function lastmodPorUrl() {
     const frontmatter = readFileSync(`${dir}/${arquivo}`, 'utf8').match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!frontmatter) continue;
 
-    const data = campoDoFrontmatter(frontmatter[1], 'updatedDate')
-      ?? campoDoFrontmatter(frontmatter[1], 'pubDate');
-    if (!data) continue;
+    // O indice so lista posts ja publicados, como getStaticPaths no blog.
+    // Um post agendado nao pode adiantar o lastmod do indice.
+    const publicadaEm = new Date(campoDoFrontmatter(frontmatter[1], 'pubDate') ?? '');
+    if (Number.isNaN(publicadaEm.valueOf()) || publicadaEm > agora) continue;
 
-    const quando = new Date(data);
-    if (Number.isNaN(quando.valueOf())) continue;
+    const atualizadaEm = new Date(campoDoFrontmatter(frontmatter[1], 'updatedDate') ?? '');
+    const quando = !Number.isNaN(atualizadaEm.valueOf())
+      && atualizadaEm >= publicadaEm && atualizadaEm <= agora
+      ? atualizadaEm
+      : publicadaEm;
 
     mapa.set(`${site}/blog/${arquivo.replace(/\.md$/, '')}/`, quando.toISOString());
   }
