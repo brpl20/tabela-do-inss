@@ -76,3 +76,20 @@ Imagens OG são hospedadas no Cloudflare R2:
 - [Site em produção](https://tabeladoinss.com.br)
 - [Documentação do Astro](https://docs.astro.build)
 - [Cloudflare Pages](https://pages.cloudflare.com)
+### Imagem social padrão e validação de build
+
+`public/og-image.jpg` é a exportação JPEG (1200×630, qualidade 85, sem EXIF)
+ do template de marca existente `public/og-image-example.svg`, indicado em
+`AGENTS.md`. Para atualizar a exportação após uma mudança aprovada no template:
+
+```sh
+node --input-type=module -e "import sharp from 'sharp'; await sharp('public/og-image-example.svg').flatten({background:'#ffffff'}).jpeg({quality:85}).toFile('public/og-image.jpg')"
+```
+
+`npm run build` também executa `check:social-images` sobre o HTML e os ativos
+emitidos em `dist/`. A checagem exige imagem Open Graph/Twitter coincidente,
+arquivo local decodificável e dimensões iguais às declaradas. Imagens de outro
+host são contadas como não verificadas e precisam de conferência HTTP separada.
+Para repetir só essa validação: `npm run check:social-images`.
+O build local não comprova deploy: confira o GET da imagem e a metadata das
+páginas em produção antes de encerrar uma issue.
