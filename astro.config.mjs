@@ -65,9 +65,13 @@ export default defineConfig({
     format: 'directory'
   },
   compressHTML: true,
+  // 'viewport' baixava em segundo plano o HTML de todo link interno visivel
+  // (menu, rodape e listas: 30+ por pagina, 100+ no indice do blog) logo na
+  // abertura, competindo com a propria pagina. 'hover' so busca o link em que
+  // o visitante encosta o mouse ou o dedo, que e quando a navegacao e provavel.
   prefetch: {
     prefetchAll: true,
-    defaultStrategy: 'viewport'
+    defaultStrategy: 'hover'
   },
   vite: {
     build: {
