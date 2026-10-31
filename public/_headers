@@ -1,0 +1,8 @@
+# Cabecalhos do Cloudflare Pages (https://developers.cloudflare.com/pages/configuration/headers/).
+#
+# Os arquivos de /_astro/ levam hash do conteudo no nome: um arquivo novo
+# sempre tem nome novo. Sem esta regra o Pages servia com
+# "max-age=14400, must-revalidate", e cada visita depois de 4 h (e cada
+# renderizador de robo) refazia a requisicao so para ouvir "nao mudou".
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
